@@ -14,6 +14,8 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 
 ==
 
+type=C
+
 # chargement des fichiers utiles 
 sandbox=@/template/basic.c
 sandbox=@/template/graderC.py
