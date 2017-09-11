@@ -9,7 +9,7 @@ author=Nicolas Borie
 name=Premier programme en C
 title=Premier programme en C
 tag=program
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 
@@ -42,8 +42,8 @@ int main(int argc, char* argv[]){
 ==
 
 # LOAD IMPORTANT FILES FOR GRADING
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+files=@/template/basic.c
+files=@/template/graderC.py
 
 grader==
 from graderC import graderI
