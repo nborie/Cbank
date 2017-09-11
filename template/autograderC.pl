@@ -22,7 +22,7 @@ sandbox=@/template/basic.c
 sandbox=@/template/graderC.py
 
 
-evaluator=@plbank/pysrc/functions/sandboxevaluator.py
+evaluator=@../plbank/pysrc/functions/sandboxevaluator.py
 
 grader==
 from graderC import grade
