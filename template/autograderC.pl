@@ -16,10 +16,13 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 
 type=sandbox
 
+
 # chargement des fichiers utiles 
 sandbox=@/template/basic.c
 sandbox=@/template/graderC.py
 
+
+evaluator=@plbank/pysrc/functions/sandboxevaluator.py
 
 grader==
 from graderC import grade
