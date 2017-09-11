@@ -2,7 +2,7 @@
 #
 #
 # nouvelle exigence du 8 Juillet le type 
-template=/python/0PLG/template.pl
+# template=@/python/0PLG/template.pl
 
 author=Nicolas Borie
 title=<>
@@ -15,8 +15,8 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 ==
 
 # chargement des fichiers utiles 
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
+sandbox=@/template/basic.c
+sandbox=@/template/graderC.py
 
 
 grader==
