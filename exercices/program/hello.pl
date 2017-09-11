@@ -45,10 +45,6 @@ int main(int argc, char* argv[]){
 files=@/template/basic.c
 files=@/template/graderC.py
 
-pltest==
-
-==
-
 grader==
 from graderC import graderI
 
