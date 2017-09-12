@@ -11,5 +11,5 @@ Voici les exercices à propos des chaînes de caractères en C
 tag=string
 
 concept==
-@ /C/exercices/string/strlenght.pl
+@ /exercices/string/strlenght.pl
 ==
