@@ -52,8 +52,8 @@ from graderC import graderII
 import random
 
 tests = [["Simple test", "", "12 3\n"],
-	 ["La tête à toto", "", "0 0\n"],
 	 ["Des négatifs", "", "-12 41\n"],
+	 ["La tête à toto", "", "0 0\n"],
 	 ["D'autres négatifs", "", "-421 -12623\n"]]
 tests.append(["Aléatoire", "", str(random.randint(-10,10))+" "+ 
 	                       str(random.randint(-10,10))+"\n"])
