@@ -27,6 +27,6 @@ Bon courage.
 tag=program
 
 concept==
-@/exercices/program/hello.pl
-@/exercices/program/order_calls.pl
+@ /exercices/program/hello.pl
+@ /exercices/program/order_calls.pl
 ==
