@@ -52,7 +52,7 @@ int string_length(char* s);
 
 int main(int argc, char* argv[]){
   
-  printf("La chaîne : %s a pour longueur %d\n", argv[1], string_length(argv[1]));
+  printf("La chaîne \"%s\" a pour longueur %d\n", argv[1], string_length(argv[1]));
   return 0;
 }
 
