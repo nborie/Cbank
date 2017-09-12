@@ -55,12 +55,12 @@ tests = [["Simple test", "", "12 3\n"],
 	 ["La tête à toto", "", "0 0\n"],
 	 ["Des négatifs", "", "-12 41\n"],
 	 ["D'autres négatifs", "", "-421 -12623\n"]]
-tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
-	                            str(random.randint(100,100))+"\n"])
-tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
-	      str(random.randint(100,100))+"\n"])
-tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
-	                            str(random.randint(100,100))+"\n"])
+tests.append(["test aléatoire", "", str(random.randint(-10,10))+" "+ 
+	                            str(random.randint(-10,10))+"\n"])
+tests.append(["test aléatoire", "", str(random.randint(-100,100))+" "+ 
+	                            str(random.randint(-100,100))+"\n"])
+tests.append(["test aléatoire", "", str(random.randint(-1000,1000))+" "+ 
+	                            str(random.randint(-1000,1000))+"\n"])
 
 graderII(tests)
 ==
