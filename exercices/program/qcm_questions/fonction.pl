@@ -1,6 +1,6 @@
 title=Les fonctions d'un programme C
 text==
-Selectionner les lignes déclaration justes.
+Selectionner les déclarations justes.
 ==
 type=direct
 template=../plbank/gift/template/multiplechoices_template.pl
