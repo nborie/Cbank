@@ -6,13 +6,13 @@ author=Nicolas Borie
 name=Somme de deux entiers données au clavier
 title=Somme de deux entiers données au clavier
 tag=input_output
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 
-Compléter le programme suivant pour qu'il récupère deux entiers
-entrés au clavier. Ces deux entiers seront stockés dans les
-variables de type entier (*int*) **a** et **b**.
+Compléter le programme suivant pour qu'il récupère deux entiers entrés
+au clavier sur l'entrée standard. Ces deux entiers seront stockés dans
+les variables de type entier (*int*) **a** et **b**.
 
 Imaginons que l'utilisateur qui va tester votre programme donne les
 deux entiers 12 et 3. Une fois ces deux entiers collectés, afficher la
@@ -47,12 +47,20 @@ int main(int argc, char* argv[]){
 
 ==
 
-
-# LOAD IMPORTANT FILES FOR GRADING
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
-
 grader==
-from graderC import grade
-grade( {"simple éxécution": ["", "", True]} , "-Wall -ansi")
+from graderC import graderII
+import random
+
+tests = [["Simple test", "", "12 3\n"],
+	 ["La tête à toto", "", "0 0\n"],
+	 ["Des négatifs", "", "-12 41\n"],
+	 ["D'autres négatifs", "", "-421 -12623\n"]]
+tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
+	                            str(random.randint(100,100))+"\n"])
+tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
+	      str(random.randint(100,100))+"\n"])
+tests.append(["test aléatoire", "", str(random.randint(100,100))+" "+ 
+	                            str(random.randint(100,100))+"\n"])
+
+graderII(tests)
 ==
