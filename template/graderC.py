@@ -563,4 +563,7 @@ def graderII(tests, flags="-Wall -ansi"):
      stdin of test]
     """
     generate_output_from_solution(tests)
+    print("\n\n****************************************\n\n")
+    print(tests)
+    print("\n\n****************************************\n\n")
     graderI(tests, flags=flags)
