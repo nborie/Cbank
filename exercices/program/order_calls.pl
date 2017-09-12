@@ -75,11 +75,6 @@ int main(int argc, char* argv[]){
 
 ==
 
-
-# LOAD IMPORTANT FILES FOR GRADING
-# files=@/template/basic.c
-# files=@/template/graderC.py
-
 grader==
 from graderC import graderII
 

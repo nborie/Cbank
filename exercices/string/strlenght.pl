@@ -6,7 +6,7 @@ author=Nicolas Borie
 name=longueur d'une chaîne de caractères
 title=longueur d'une chaîne de caractères
 tag=string
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 
@@ -57,10 +57,6 @@ int main(int argc, char* argv[]){
 }
 
 ==
-
-# LOAD IMPORTANT FILES FOR GRADING
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_cmp_soluce
