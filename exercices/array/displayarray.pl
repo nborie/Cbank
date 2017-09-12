@@ -18,7 +18,7 @@ fin de tableau.
 code==
 #include ...
 
-void diaplay_array(int* array, int nb_term){
+void display_array(int* array, int nb_term){
   /* votre code ici... */
 }
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
 solution==
 #include <stdio.h>
 
-void diaplay_array(int* array, int nb_term){
+void display_array(int* array, int nb_term){
   int i;
 
   printf("[");
@@ -44,13 +44,9 @@ void diaplay_array(int* array, int nb_term){
 int main(int argc, char* argv[]){
   int tab[] = {6, 2, 3, 7, 7, 9, 2};
 
-  diaplay_array(tab, 7);
+  display_array(tab, 7);
   return 0;
 }
-==
-
-expectedoutput==
-[6, 2, 3, 7, 7, 9, 2]
 ==
 
 grader==
