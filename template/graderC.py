@@ -327,6 +327,13 @@ class C_unit_test():
         This method caches the results. So, it is supposed to be called
         only a single time.
         """
+        # Place stdin inside a file
+        if len(self.stdin()) > 0:
+            stdin_file = open(self.stdin_path(), "w")
+            stdin_file.write(self.stdin())
+            stdin_file.close()
+
+        # The test is executed here
         cmd = self.command_test()
         os.system(cmd)
 
@@ -334,12 +341,6 @@ class C_unit_test():
         expected_output_file = open("expected_output.log", "w")
         expected_output_file.write(self.expected_output())
         expected_output_file.close()
-
-        # Place stdin inside a file
-        if len(self.stdin()) > 0:
-            stdin_file = open(self.stdin_path(), "w")
-            stdin_file.write(self.stdin())
-            stdin_file.close()
 
         diff_cmd = "diff {} {} > {}".format("expected_output.log", self.output_path(), "diff_output.log")
         os.system(diff_cmd)
