@@ -3,7 +3,7 @@ author=Nicolas Borie
 name=Afficher le contenu d'un tableau
 title=Afficher le contenu d'un tableau
 tag=output|array
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 Écrire une fonction qui affiche le contenu d'un tableau C. Cette
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
 }
 ==
 
-soluce==
+solution==
 #include <stdio.h>
 
 void diaplay_array(int* array, int nb_term){
@@ -53,11 +53,9 @@ expectedoutput==
 [6, 2, 3, 7, 7, 9, 2]
 ==
 
-# chargement des fichiers utiles 
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
-
 grader==
-from graderC import grade
-grade()
+from graderC import graderI
+
+tests = [["Exécution simple", "", "", "[6, 2, 3, 7, 7, 9, 2]\n"]]
+graderI(tests)
 ==
