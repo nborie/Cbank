@@ -51,7 +51,3 @@ from graderC import graderI
 tests = [ ["simple éxécution", "","", "Hello World!\n"] ]
 graderI(tests)
 ==
-
-expectedoutput==
-NE SERT A RIEN SI TOUT VA BIEN...
-==

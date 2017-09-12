@@ -32,3 +32,6 @@ from graderC import grade
 grade()
 ==
 
+expectedoutput==
+NE SERT A RIEN SI TOUT VA BIEN...
+==
