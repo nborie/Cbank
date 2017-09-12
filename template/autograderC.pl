@@ -22,11 +22,10 @@ sandbox=@/template/graderC.py
 
 
 # evaluateur standard plbank utilisant la sandbox
-evaluator=@plbank:/pysrc/functions/sandboxevaluator.py
-# evaluator=@../plbank/pysrc/functions/sandboxevaluator.py
+evaluator=@../plbank/pysrc/functions/sandboxevaluator.py
 
 # interface exercice standard plbank
-form=@plbank:/plbank/python/form/editorform.html
+form=@../plbank/python/form/editorform.html
 
 grader==
 from graderC import grade
