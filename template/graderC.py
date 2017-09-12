@@ -210,7 +210,7 @@ class C_unit_test():
     * command_args : a long string of arguments given to the
       executable (space separate arguments)
 
-    * sdtin : a stream given during programm execution on the standard
+    * stdin : a stream given during programm execution on the standard
       input
 
     * expected_output : fusion of standard output and standard error
@@ -219,14 +219,14 @@ class C_unit_test():
 
     * executable_path : a path to the exuctable (mainly its name)
     """
-    def __init__(self, name, command_args="", sdtin="",
+    def __init__(self, name, command_args="", stdin="",
                  expected_output="", executable_path=None):
         """
         Initialization of `self`.
         """
         self._name = name
         self._command_args = command_args
-        self._stdin = sdtin
+        self._stdin = stdin
         self._expected_output = expected_output
         self._executable_path = executable_path
 
@@ -335,7 +335,7 @@ class C_unit_test():
         expected_output_file.write(self.expected_output())
         expected_output_file.close()
 
-        # Place sdtin inside a file
+        # Place stdin inside a file
         if len(self.stdin()) > 0:
             stdin_file = open(self.stdin_path(), "w")
             stdin_file.write(self.stdin())
@@ -514,7 +514,7 @@ def generate_output_from_solution(tests):
 # each test provide :                                              #
 # - a name                                                         #
 # - a string for the programm arguments                            #
-# - the content of sdtin                                           #
+# - the content of stdin                                           #
 # - the expected output                                            #
 ####################################################################
 
