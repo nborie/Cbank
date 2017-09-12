@@ -6,11 +6,11 @@ author=Nicolas Borie
 name=Macro pour calculer un carré
 title=Macro pour calculer un carré
 tag=macro
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 Écrire une macro **SQUARE** qui prend en argument un seul paramètre
-(jamais typé comme c'est toujour le cas pour les macros) qui remplace
+(jamais typé comme c'est toujours le cas pour les macros) qui remplace
 son argument par le carré de son paramètre. Le paramètre de la macro
 sera toujours une expression C qui s'évalue dans un type numérique.
 
@@ -21,12 +21,12 @@ code==
 
 ==
 
-codecmp==
+solution==
 #define SQUARE(a) ((a)*(a))
 
 ==
 
-codecontextafter==
+codeafter==
  
 #include <stdio.h>
 
@@ -43,12 +43,9 @@ int main(int argc, char* argv[]){
 
 ==
 
-# LOAD IMPORTANT FILES FOR GRADING
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
-
 grader==
-from graderC import grade_argcmd_stdin_cmp_soluce
-tests = {"expressions classiques": ["","", True]}
-grade_argcmd_stdin_cmp_soluce(tests=tests, flags="-Wall -ansi", break_first_error=True, flags_soluce="-Wall -ansi")
+from graderC import graderII
+ 
+tests = ["expressions classiques", "",""]
+graderII(tests)
 ==
