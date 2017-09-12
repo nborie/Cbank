@@ -46,6 +46,6 @@ int main(int argc, char* argv[]){
 grader==
 from graderC import graderII
  
-tests = ["expressions classiques", "",""]
+tests = [["expressions classiques", "",""]] 
 graderII(tests)
 ==
