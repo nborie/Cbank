@@ -6,7 +6,7 @@ author=Nicolas Borie
 name=Ordonner les appels de fonctions
 title=Ordonner les appels de fonctions
 tag=program
-template=/C/template/autograderC
+template=/template/autograderC
 
 text==
 
@@ -77,8 +77,8 @@ int main(int argc, char* argv[]){
 
 
 # LOAD IMPORTANT FILES FOR GRADING
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+# files=@/template/basic.c
+# files=@/template/graderC.py
 
 grader==
 from graderC import graderII
