@@ -5,8 +5,6 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
 #
 
-from jinja2 import Template
-
 def subnlbybr(str):
     """
     Substitute each occurences of char '\n' by '<br />' in the string
@@ -19,51 +17,80 @@ def subnlbybr(str):
     """
     return "<br/>".join(str.split("\n"))
 
+def add_border(html_code, font_color=None, font_family=None, background_color=None, border_radius=None):
+    """
+    Return `html_code` but the content is placed in a box which
+    respects the arguments.
+
+    EXAMPLES::
+    
+        >>> add_border("Salut!")
+        ...
+    """
+    # CSS local for the border of the div block 
+    style = 'border:1px solid black;padding:1%;margin:1%;'
+    if background_color is not None:
+        style += 'background-color: ' + background_color + ';'
+    if border_radius is not None:
+        style += 'border-radius: ' + border_radius + ';'
+    html_before = '<div style="' + style + '">'
+
+    # CSS local for the content inside the block
+    style = ''
+    if font_color is not None:
+        style += 'color: ' + font_color + ';'
+    if font_family is not None:
+        style += 'font-family: ' + font_family + ';'
+    html_before += '<font style="' + style + '">'
+
+    # Ends of blocks
+    html_after = '</font></div>'
+    
+    return html_before + subnlbybr(html_code) + html_after
+
+def terminal_code(msg):
+    """
+    Return html/CSS code to display msg with a terminal look.
+
+    EXEMPLES::
+
+        >>> terminal_code(">>> 1+1\n2\n")
+        ...
+    """
+    return add_border(msg, "White", "Monospace", "Black", None) 
+        
 def generated_feedback_compilation(flags, compil_state, gcc_msg):
     """
     Generate feedback for the compilation.
-    """    
-    feed = '<div style="border:1px solid black;padding:1%;margin:1%;background-color: '
-    # Dispatch for background color
+    """
     if compil_state == "error":
-        feed = feed + 'salmon'
+        bg_color = 'Salmon'
+        gcc_state = 'Erreur'
+        color_state = 'DarkRed'
     elif compil_state == "warning":
-        feed = feed + 'moccasin'
+        bg_color = 'Moccasin'
+        gcc_state = 'Warning'
+        color_state = 'DarkOrange'
     else:
-        feed = feed + 'lightgreen'
-    feed = feed + ';border-radius: 10px;"><font color="black"><u>Compilation'
+        bg_color = 'LightGreen'
+        gcc_state = 'Réussie'
+        color_state = 'DarkGreen'
 
-    # Flags precision if relevant
+    compil_fb = '<u>Compilation'
     if len(flags) > 0:
-        feed = feed + 'avec drapeaux ' + flags
+        compil_fb += 'avec drapeaux ' + flags
+    compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font><br />' 
 
-    feed = feed + ' :</u> </font><font color="'
-    # Dispatch to print the status of compilation
     if compil_state == "error":
-        feed = feed + 'darkred"><b>Erreur'
+        compil_fb += 'Il y a des erreurs à la compilation de votre programme.'
     elif compil_state == "warning":
-        feed = feed + 'darkorange"><b>Warning'
-    else:
-        feed = feed + 'darkgreen"><b>Réussie'
-    feed = feed + '</b></font><br />'
+        compil_fb += 'Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur.'
 
-    # If success
-    if compil_state == "perfect":
-        feed = feed + '</div>'
-        return feed
-    # Otherwise, we need to provide the feedback form gcc
-    if compil_state == "error":    
-        feed = feed + 'Il y a des erreurs à la compilation de votre programme.'
-    else:
-        feed = feed + 'Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur.'
-        
-    feed = feed + '<br />Feedback provenant de gcc: <br />'
-    feed = feed + '<div style="border:1px solid black;padding:1%;margin:1%;background-color: black;">'
-    feed = feed + '<font style="color: white;font-family: Monospace;">'
-    subnlbybr(gcc_msg)
-    feed = feed + gcc_msg + '</font></div></div>'
-    
-    return feed
+    if len(gcc_msg) > 0:
+        compil_fb += '<br />Feedback provenant de gcc: <br />'
+        compil_fb += terminal_code(gcc_msg)
+
+    return add_border(compil_fb, "Black", None, bg_color, "10px")
 
 class FeedbackC:
     pass
