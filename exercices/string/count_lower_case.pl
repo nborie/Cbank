@@ -52,7 +52,7 @@ for i in range(3):
     taille = random.randint(10, 30)
     mot = ""
     for j in range(taille):
-        mot += chr(random.randint(32, 127))
+        mot += chr(random.randint(33, 127))
     tests.append(["Aléatoire", mot, ""])
 
 graderII(tests)
