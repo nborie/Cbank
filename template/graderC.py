@@ -33,7 +33,7 @@ import os
 import sys
 import json
 
-from feedbackC import generate_feedback_compilation, generate_feedback_test
+from feedbackC import generate_feedback_compilation, generate_feedback_test, global_message
 
 ##########################################################################
 #  Initialization of dico_reponse add a champ compilation for C langage  #
@@ -547,7 +547,7 @@ def graderI(tests, flags="-Wall -ansi"):
         for name, feedbacktest in testsuite.feedback():
             dico_reponse['feedback'] += feedbacktest
         dico_reponse['success'] = testsuite.result()
-
+       
     dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
     
     print(json.dumps(dico_reponse))

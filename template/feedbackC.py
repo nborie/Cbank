@@ -125,3 +125,21 @@ def generate_feedback_test(result, test_name, args, stdin, output, expected):
         test_fb += 'Réponse : <br />' + terminal_code(output)
         
     return add_border(test_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "4px")
+
+def global_message(success, nb_test, nb_test_failled):
+    """
+    Return a top global message for the whole testsuite
+    """
+    if success:
+        msg = 'Validation réussie'
+        if nb_test == 1:
+            msg += ' : Le test passe'
+        elif nb_test > 1:
+            msg += ' : Les ' + str(nb_test) + ' tests passent'
+    else:
+        msg = 'Validation échoué'
+        if nb_test == 1:
+            msg += ' : Le test a échoué'
+        elif nb_test > 1:
+            msg += ' : ' + str(nb_test) + ' tests ont échoué'
+    return msg + '<br />'
