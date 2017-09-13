@@ -33,6 +33,11 @@ codeafter==
 void display_array(int* array, int nb_term){
   int i;
 
+  if (nb_term == 0){
+    printf("[]\n");
+    return ;
+  }
+
   printf("[");
   for (i=0 ; i<nb_term-1 ; i++)
     printf("%d, ", array[i]);
@@ -62,11 +67,11 @@ tests = [["Exécution simple", "1", ""],
          ["Quelques éléments", "12 -3 52 0 41", ""],
          ["Tableau vide", "", ""]]
 
-chaine_tab_alea = ""
-for i in range(random.randint(5, 10)):
-    chaine_tab_alea += (" " + str(random.randint(-100, 100)))
-
-tests.append(["Aléatoire", chaine_tab_alea, ""])
+for k in range(2):
+    chaine_tab_alea = ""
+    for i in range(random.randint(5, 10)):
+        chaine_tab_alea += (" " + str(random.randint(-100, 100)))
+    tests.append(["Aléatoire", chaine_tab_alea, ""])
 
 graderII(tests)
 ==
