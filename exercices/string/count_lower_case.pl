@@ -49,11 +49,13 @@ tests = [["Mot simple", "salut", ""],
          ["Mot vide", "''", ""]]
 
 for i in range(3):
-    taille = random.randint(12, 35)
+    taille = random.randint(10, 30)
     mot = ""
     for j in range(taille):
-        if j not in [34, 37, 39, 92, 91, 93]:
-            mot += chr(random.randint(33, 127))
+        if random.randint(0,1) == 0:
+            mot += chr(97+random.randint(0,25))
+        else:
+            mot += chr(65+random.randint(0,25))
     tests.append(["Aléatoire", mot, ""])
 
 graderII(tests)
