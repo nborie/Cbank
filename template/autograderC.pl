@@ -19,7 +19,8 @@ type=sandbox
 # chargement des fichiers utiles 
 sandbox=@/template/basic.c
 sandbox=@/template/graderC.py
-
+sandbox=@/template/feedbackC.py
+sandbox=@/template/__init__.py
 
 # evaluateur standard plbank utilisant la sandbox
 evaluator=@../plbank/pysrc/functions/sandboxevaluator.py
