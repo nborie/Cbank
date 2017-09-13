@@ -177,26 +177,30 @@ class PreActionsAndCompile():
         # If there is some compilation errors
         if "error:" in err_out:
             self._compilation_state = "error"
-            self._feedback = "Il y a des erreurs à la compilation de votre programme:\nFeedback gcc:\n" + err_out + "\n" 
+            # self._feedback = "Il y a des erreurs à la compilation de votre programme:\nFeedback gcc:\n" + err_out + "\n"
+            self._feedback = generated_feedback_compilation(self.flags(), self._compilation_state, err_out)
             return None
 
         # If there is some warnings in standard error (it happen...)
         if "warning:" in err_out:
             self._compilation_state = "warning"
-            self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + err_out + "\n"
+            # self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + err_out + "\n"
+            self._feedback = generated_feedback_compilation(self.flags(), self._compilation_state, err_out)
             return None
 
         # Sometimes warnings are thrown by standard output
         if "warning:" in std_out:
             self._compilation_state = "warning"
-            self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + std_out + "\n"
+            # self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + std_out + "\n"
+            self._feedback = generated_feedback_compilation(self.flags(), self._compilation_state, std_out)
             return None
 
-        if len(self.flags()) > 0: # No quality cheching flag compilation
-            self._feedback = "Votre programme semble être écrit correctement (compilation avec "+ self.flags() +").\n"
-        else: # Some quality flags compilation
-            self._feedback = "Votre programme semble être écrit correctement.\n"
+        # if len(self.flags()) > 0: # No quality cheching flag compilation
+        #     self._feedback = "Votre programme semble être écrit correctement (compilation avec "+ self.flags() +").\n"
+        # else: # Some quality flags compilation
+        #     self._feedback = "Votre programme semble être écrit correctement.\n"
         self._compilation_state = "perfect"
+        self._feedback = generated_feedback_compilation(self.flags(), self._compilation_state, "")
 
         
 ####################################################################
