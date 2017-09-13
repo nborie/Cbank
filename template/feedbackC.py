@@ -37,14 +37,14 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
     if len(flags) > 0:
         feed = feed + 'avec drapeaux ' + flags
 
-    feed = feed + ' :</u> </font><font color="darkred"><b>'
+    feed = feed + ' :</u> </font><font color="'
     # Dispatch to print the status of compilation
     if compil_state == "error":
-        feed = feed + 'Erreur'
+        feed = feed + 'darkred"><b>Erreur'
     elif compil_state == "warning":
-        feed = feed + 'Warning'
+        feed = feed + 'darkorange"><b>Warning'
     else:
-        feed = feed + 'Réussie'
+        feed = feed + 'darkgreen"><b>Réussie'
     feed = feed + '</b></font><br />'
 
     # If success
