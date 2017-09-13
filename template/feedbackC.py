@@ -85,10 +85,10 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
         gcc_state = 'Réussie'
         color_state = 'DarkGreen'
 
-    compil_fb = '<font font-size="1em"><u>Compilation'
+    compil_fb = '<u>Compilation'
     if len(flags) > 0:
         compil_fb += ' avec drapeaux ' + flags
-    compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font></font><br />' 
+    compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font><br />' 
 
     if compil_state == "error":
         compil_fb += 'Il y a des erreurs à la compilation de votre programme.'
