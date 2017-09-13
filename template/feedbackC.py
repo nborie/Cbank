@@ -101,7 +101,7 @@ def generate_feedback_compilation(flags, compil_state, gcc_msg):
         compil_fb += '<br />Feedback provenant de gcc: <br />'
         compil_fb += terminal_code(gcc_msg)
 
-    return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "5px")
+    return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "4px")
 
 def generate_feedback_test(result, test_name, args, stdin, output, expected):
     """
@@ -124,4 +124,4 @@ def generate_feedback_test(result, test_name, args, stdin, output, expected):
     else:
         test_fb += 'Réponse : <br />' + terminal_code(output)
         
-    return add_border(test_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "5px")
+    return add_border(test_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "4px")

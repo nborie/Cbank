@@ -368,7 +368,7 @@ class C_unit_test():
             self._result = False
 
         feedback = generate_feedback_test(self._result, self._name, self.command_args(),
-                                          self.stdin(), self.expected_output(), output_exec)
+                                          self.stdin(), output_exec, self.expected_output())
 
         # Update the feedback
         self._feedback = feedback
