@@ -364,18 +364,11 @@ class C_unit_test():
         # Update result of the test
         if len(diff_output) == 0:
             self._result = True
-            feedback = "Test {} ... OK\n".format(self._name)
         else:
             self._result = False
-            feedback = "Test {} ... echec\n".format(self._name)
 
-        # contextual information for this test
-        if self.command_args() != "":
-            feedback += "Arguments : {}\n".format(self.command_args())
-        if self.stdin() != "":
-            feedback += "Entrée clavier : {}\n".format(self.stdin())
-        feedback += "Réponse attendue : \n{}\n".format(self.expected_output())
-        feedback += "Réponse obtenue : \n{}\n".format(output_exec)
+        feedback = generate_feedback_test(self._result, self._name, self.command_args(),
+                                          self.stdin(), self.expected_output(), output_exec)
 
         # Update the feedback
         self._feedback = feedback
