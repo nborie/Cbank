@@ -55,6 +55,7 @@ int main(int argc, char* argv[]){
 
   apply_square_array(tab, nb_term);
   display_array(tab, nb_term);
+  free(tab);
   return 0;
 }
 ==
