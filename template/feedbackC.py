@@ -15,4 +15,4 @@ def subnlbybr(str):
     return "<br/>".join(str.split("\n"))
 
 class FeedbackC:
-    passs
+    pass
