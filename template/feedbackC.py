@@ -17,7 +17,8 @@ def subnlbybr(str):
     """
     return "<br/>".join(str.split("\n"))
 
-def add_border(html_code, font_color=None, font_family=None, background_color=None, border_radius=None):
+def add_border(html_code, font_color=None, font_family=None, font_size=None,
+               font_style=None, background_color=None, border_radius=None):
     """
     Return `html_code` but the content is placed in a box which
     respects the arguments.
@@ -41,6 +42,10 @@ def add_border(html_code, font_color=None, font_family=None, background_color=No
         style += 'color: ' + font_color + ';'
     if font_family is not None:
         style += 'font-family: ' + font_family + ';'
+    if font_size is not None:
+        style += 'font-size: ' + font_size + ';'
+    if font_style is not None:
+        style += 'font-style: ' + font_style + ';'
     html_before += '<font style="' + style + '">'
 
     # Ends of blocks
@@ -57,7 +62,7 @@ def terminal_code(msg):
         >>> terminal_code(">>> 1+1\n2\n")
         ...
     """
-    return add_border(msg, "White", "Monospace", "Black", None) 
+    return add_border(msg, "White", "Monospace", "0.8em", "normal", "Black", None) 
         
 def generated_feedback_compilation(flags, compil_state, gcc_msg):
     """
@@ -78,7 +83,7 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
 
     compil_fb = '<u>Compilation'
     if len(flags) > 0:
-        compil_fb += 'avec drapeaux ' + flags
+        compil_fb += ' avec drapeaux ' + flags
     compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font><br />' 
 
     if compil_state == "error":
@@ -90,7 +95,7 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
         compil_fb += '<br />Feedback provenant de gcc: <br />'
         compil_fb += terminal_code(gcc_msg)
 
-    return add_border(compil_fb, "Black", None, bg_color, "10px")
+    return add_border(compil_fb, "Black", None, "1em", "normal", bg_color, "10px")
 
 class FeedbackC:
     pass
