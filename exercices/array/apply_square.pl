@@ -41,7 +41,7 @@ void display_array(int* array, int nb_term){
 
 int main(int argc, char* argv[]){
   int nb_term = argc-1;
-  int tab = (int*)malloc(nb_term*sizeof(int));
+  int* tab = (int*)malloc(nb_term*sizeof(int));
   int i;
 
   for (i=0 ; i<nb_term ; i++){
