@@ -33,7 +33,7 @@ import os
 import sys
 import json
 
-from feedbackC import FeedbackC, generated_feedback_compilation
+from feedbackC import generate_feedback_compilation, generate_feedback_test
 
 ##########################################################################
 #  Initialization of dico_reponse add a champ compilation for C langage  #

@@ -68,7 +68,7 @@ def terminal_code(msg):
     """
     return add_border(msg, "White", "Monospace", "0.8em", "normal", "normal", "Black", None) 
         
-def generated_feedback_compilation(flags, compil_state, gcc_msg):
+def generate_feedback_compilation(flags, compil_state, gcc_msg):
     """
     Generate feedback for the compilation.
     """
@@ -101,7 +101,10 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
         compil_fb += '<br />Feedback provenant de gcc: <br />'
         compil_fb += terminal_code(gcc_msg)
 
-    return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "10px")
+    return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "5px")
 
-class FeedbackC:
-    pass
+def generate_feedback_test(test):
+    """
+    """
+    test_fb
+    return test_fb
