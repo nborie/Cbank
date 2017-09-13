@@ -60,6 +60,7 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
     feed = feed + '<br />Feedback provenant de gcc: <br />'
     feed = feed + '<div style="border:1px solid black;padding:1%;margin:1%;background-color: black;">'
     feed = feed + '<font style="color: white;font-family: Monospace;">'
+    subnlbybr(gcc_msg)
     feed = feed + gcc_msg + '</font></div></div>'
     
     return feed
