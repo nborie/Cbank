@@ -85,21 +85,23 @@ def generated_feedback_compilation(flags, compil_state, gcc_msg):
         gcc_state = 'Réussie'
         color_state = 'DarkGreen'
 
-    compil_fb = '<u>Compilation'
+    compil_fb = '<font font-size="1em"><u>Compilation'
     if len(flags) > 0:
         compil_fb += ' avec drapeaux ' + flags
-    compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font><br />' 
+    compil_fb += ' :</u> <font color="' + color_state  + '"><b>' + gcc_state + '</b></font></font><br />' 
 
     if compil_state == "error":
         compil_fb += 'Il y a des erreurs à la compilation de votre programme.'
     elif compil_state == "warning":
         compil_fb += 'Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur.'
-
+    else:
+        compil_fb += 'Compilation parfaite, <b>gcc</b> ne retourne ni warning ni erreur.<br />'
+        
     if len(gcc_msg) > 0:
         compil_fb += '<br />Feedback provenant de gcc: <br />'
         compil_fb += terminal_code(gcc_msg)
 
-    return add_border(compil_fb, "Black", None, "1em", "normal", "normal", bg_color, "10px")
+    return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "10px")
 
 class FeedbackC:
     pass
