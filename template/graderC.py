@@ -33,6 +33,8 @@ import os
 import sys
 import json
 
+from feedbackC import FeedbackC
+
 ##########################################################################
 #  Initialization of dico_reponse add a champ compilation for C langage  #
 #        Get the exercice content                                        #
@@ -554,6 +556,18 @@ def graderI(tests, flags="-Wall -ansi"):
     print(json.dumps(dico_reponse))
     sys.exit()
 
+####################################################################
+#       GRADER II : grade from a list of tests from solution       #
+# each test provide :                                              #
+# - a name                                                         #
+# - a string for the programm arguments                            #
+# - the content of stdin                                           #
+#                                                                  #
+# WARNING : the exercice must contains a teacher solution          #
+#           i.e. the exercice conatins a solution bloc of code     #
+#                                                                  #
+####################################################################
+    
 def graderII(tests, flags="-Wall -ansi"):
     """
     This grader takes in arguments a dictionnary of tests nammed `tests`.
@@ -563,5 +577,7 @@ def graderII(tests, flags="-Wall -ansi"):
      arguments in command line,
      stdin of test]
     """
+    # Generation of expected outputs using the solution inside the exercice
     generate_output_from_solution(tests)
+    # Since tests are completed with expected output, call graderI
     graderI(tests, flags=flags)
