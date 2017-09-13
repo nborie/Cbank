@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
     tab[i] = atoi(argv[i+1]);
   }
 
-  apply_square_array(tab, int nb_term);
+  apply_square_array(tab, nb_term);
   display_array(tab, nb_term);
   return 0;
 }
