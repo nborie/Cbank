@@ -103,8 +103,25 @@ def generate_feedback_compilation(flags, compil_state, gcc_msg):
 
     return add_border(compil_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "5px")
 
-def generate_feedback_test(test):
+def generate_feedback_test(result, test_name, args, stdin, output, expected):
     """
     """
-    test_fb
-    return test_fb
+    if not result:
+        bg_color = 'Salmon'
+        test_fb = 'Test {} ... <font color="DarkRed"><b>echec</b></font><br />'.format(test_name)
+    else:
+        bg_color = 'LightGreen'
+        test_fb = 'Test {} ... <font color="DarkGreen"><b>OK</b></font><br />'.format(test_name)
+        
+    if len(args) > 0:
+        test_fb += 'Arguments : {}<br />'.format(args)
+    if len(stdin) > 0:
+        test_fb += "Entrée standard durant exécution : <br />" + terminal_code(stdin)
+        
+    if not result:
+        test_fb += 'Réponse attendue : <br />' + terminal_code(expected)
+        test_fb += 'Réponse obtenue : <br />' + terminal_code(output)
+    else:
+        test_fb += 'Réponse : <br />' + terminal_code(output)
+        
+    return add_border(test_fb, "Black", None, "0.8em", "normal", "normal", bg_color, "5px")
