@@ -3,8 +3,8 @@
 # Déclaration d'une strcture C pour des points 2 dimensions entiers
 
 author=Nicolas Borie
-name=Strcture pour points entiers en dimension 2
-title=Strcture pour points entiers en dimension 2
+name=Structure pour points entiers en dimension 2
+title=Structure pour points entiers en dimension 2
 tag=structure
 template=/template/autograderC
 
