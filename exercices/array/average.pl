@@ -28,6 +28,9 @@ float average_array(int* tab, int size){
   int i;
   float sum = 0;
 
+  if size == 0:
+    return 0;
+  
   for (i=0 ; i<size ; i++)
     sum += tab[i];
   return sum / ((float)size);
