@@ -39,20 +39,6 @@ codeafter==
 #include <stdio.h>
 #include <stdlib.h>
 
-void display_array(int* array, int nb_term){
-  int i;
-
-  if (nb_term == 0){
-    printf("[]\n");
-    return ;
-  }
-
-  printf("[");
-  for (i=0 ; i<nb_term-1 ; i++)
-    printf("%d, ", array[i]);
-  printf("%d]\n", array[nb_term-1]);
-}
-
 int main(int argc, char* argv[]){
   int nb_term = argc-1;
   int* tab = (int*)malloc(nb_term*sizeof(int));
@@ -62,7 +48,6 @@ int main(int argc, char* argv[]){
     tab[i] = atoi(argv[i+1]);
   }
 
-  display_array(tab, nb_term);
   printf("Moyenne : %f\n", average_array(tab, nb_term));
   free(tab);
   return 0;
