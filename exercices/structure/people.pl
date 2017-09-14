@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
 
   strcpy(P.first_name, argv[1]);
   strcpy(P.last_name, argv[2]);
-  P.age = atoi(argv[3])
+  P.age = atoi(argv[3]);
   
   printf("Personne reconnue : %s %s %d\n", P.first_name, P.last_name, P.age);
   return 0;
