@@ -32,13 +32,13 @@ codeafter==
     
 int main(int argc, char* argv[]){
 
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
-  printf("Jour %d", lundi);
+  printf("Jour %d\n", lundi);
+  printf("Jour %d\n", mardi);
+  printf("Jour %d\n", mercredi);
+  printf("Jour %d\n", jeudi);
+  printf("Jour %d\n", vendredi);
+  printf("Jour %d\n", samedi);
+  printf("Jour %d\n", dimanche);
   
   return 0;
 }
