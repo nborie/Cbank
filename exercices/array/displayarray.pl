@@ -1,4 +1,7 @@
-# Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
+# Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
+#
+# Affichage d'un tableau d'entiers
+
 author=Nicolas Borie
 name=Afficher le contenu d'un tableau
 title=Afficher le contenu d'un tableau
