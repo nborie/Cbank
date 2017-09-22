@@ -10,6 +10,7 @@ tag=program|variable
 type=direct
 
 build==
+    
 from /tools/code_generations import generate_thread_code, get_result
 
 def build(dic):
@@ -27,12 +28,6 @@ form==
 <span class="input-group-addon">Réponse</span>
 <input id="form_txt_answer" type="number" class="form-control" placeholder="" required>
 </div>
-== 
-    
-text==
-
-Mettre ici le code généré...
-    
 ==
     
 evaluator==
