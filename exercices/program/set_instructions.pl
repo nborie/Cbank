@@ -10,8 +10,9 @@ tag=program|variable
 type=direct
 
 build==
-    
-from /tools/code_generations import generate_thread_code, get_result
+
+import adijowuhcsuid    
+from tools/code_generations import generate_thread_code, get_result
 
 def build(dic):
     d = dict(dic)
