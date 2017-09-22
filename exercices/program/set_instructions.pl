@@ -13,10 +13,13 @@ build==
 from /tools/code_generations import generate_thread_code, get_result
 
 def build(dic):
+    d = dict(dic)
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
-    dic['vars_values'] = values
-    dic['text'] = code
+    d['vars_values'] = values
+    d['text'] = code
+    return d
+
 ==
     
 form==
