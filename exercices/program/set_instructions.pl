@@ -205,7 +205,7 @@ def evaluator(response, dic):
         if response['answer'] == "Erreur":
             return True, "Bravo"
         else:
-            return False, "Essaie encore!"
+            return False, "Mauvaise réponse"
     try: 
         value = int(response['answer'])
     except:
