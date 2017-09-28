@@ -195,7 +195,7 @@ def build(dic):
 form==
 <div class="input-group">
 <span class="input-group-addon">Réponse</span>
-<input id="form_txt_answer" type="number" class="form-control" placeholder="" required>
+<input id="form_txt_answer" type="text" class="form-control" placeholder="" required>
 </div>
 ==
 
