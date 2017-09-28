@@ -168,12 +168,11 @@ def get_result(nb_object, code):
 
 def build(dic):
     d = dict(dic)
-    # code = generate_thread_code(2, 20, 5)
-    # values = get_result(2, code)
-    # d['vars_values'] = values
-    # d['text'] = code
-    d['text'] = "MACHEPROUT"
-    d['responses'] = None
+    code = generate_thread_code(2, 20, 5)
+    values = get_result(2, code)
+    d['vars_values'] = values
+    d['text'] = code
+    d['responses'] = values
     return d
 
 ==
