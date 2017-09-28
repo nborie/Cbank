@@ -164,6 +164,7 @@ def get_result(nb_object, code):
 
     if len(str_values) > 1:
         return list(map(int, str_values.split(' ')))
+    return None
 
 def subnlbybr(str):
     """
