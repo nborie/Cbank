@@ -182,7 +182,7 @@ def double_with_tab(str):
 
 def build(dic):
     d = dict(dic)
-    code = generate_thread_code(2, 20, 5)
+    code = generate_thread_code(2, 14, 4)
     values = get_result(2, code)
     d['vars_values'] = values
     d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code\n" + str(values)
@@ -200,6 +200,11 @@ form==
 
 evaluator==
 def evaluator(response, dic):
+    if dic['vars_values'] is None:
+        if response['answer'] == "Erreur":
+            return True, "Bravo"
+        else:
+            return False, "Essaie encore!"
     if int(response['answer']) == dic['vars_values'][0]:
         return True, "Bravo"
     else:
