@@ -9,7 +9,7 @@ tag=program|variable
 
 type=direct
 
-build==
+# build==
     
 # import random
 # import os
@@ -166,16 +166,16 @@ build==
 #         return list(map(int, str_values.split(' ')))    
 
 
-def build(dic):
-    # d = dict(dic)
-    # code = generate_thread_code(2, 20, 5)
-    # values = get_result(2, code)
-    # d['vars_values'] = values
-    # d['text'] = code
-    d['text'] = "MACHEPROUT"
-    return d
+# def build(dic):
+#     # d = dict(dic)
+#     # code = generate_thread_code(2, 20, 5)
+#     # values = get_result(2, code)
+#     # d['vars_values'] = values
+#     # d['text'] = code
+#     d['text'] = "MACHEPROUT"
+#     return d
 
-==
+# ==
     
 form==
 <div class="input-group">
