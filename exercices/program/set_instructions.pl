@@ -114,10 +114,10 @@ def generate_test_block(nb_object, complexity):
 def initialisation_code(nb_object):
     L = ["int a;", "int b;", "int c;", "int d;", "int e;"]
     code = '\n'.join(L[0:nb_object])
-    # code += '\n'
+    code += '\n'
     for i in range(nb_object):
         code += '\n' + objects[i] + " = " + alea_liste(constants) + ";"
-    return code
+    return code + '\n'
 
 def generate_thread_code(nb_object, complexity, max_entry=None):
     L = alea_split(complexity, max_entry)
@@ -185,7 +185,7 @@ def build(dic):
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = "\n" + double_with_tab(code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code" 
+    d['text'] = "\n\n" + double_with_tab(code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code" 
     d['responses'] = values
     return d
 
