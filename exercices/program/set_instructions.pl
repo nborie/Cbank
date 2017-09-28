@@ -176,7 +176,7 @@ def build(dic):
     return d
 
 ==
-    
+
 form==
 <div class="input-group">
 <span class="input-group-addon">Réponse</span>
