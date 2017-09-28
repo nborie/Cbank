@@ -233,8 +233,8 @@ def build(dic):
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = " **toto** "
-    d['text'] += "\n```\n"+ code + "\n```"
+    d['text'] = " **toto** \n"
+    d['text'] += "\n\n\n```c\n"+ code + "\n```"
     d['responses'] = values
     return d
 
