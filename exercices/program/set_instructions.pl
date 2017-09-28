@@ -206,8 +206,12 @@ def evaluator(response, dic):
             return True, "Bravo"
         else:
             return False, "Essaie encore!"
-    if int(response['answer']) == dic['vars_values'][0]:
+    try: 
+        value = int(response['answer'])
+    except:
+        return False, "Mauvaise réponse"
+    if value == dic['vars_values'][0]:
         return True, "Bravo"
     else:
-        return False, "Essaie encore!"
+        return False, "Mauvaise réponse"
 ==
