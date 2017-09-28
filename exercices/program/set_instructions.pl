@@ -173,6 +173,7 @@ def build(dic):
     # d['vars_values'] = values
     # d['text'] = code
     d['text'] = "MACHEPROUT"
+    d['responses'] = None
     return d
 
 ==
