@@ -186,7 +186,7 @@ def build(dic):
     values = get_result(2, code)
     d['vars_values'] = values
     d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code\n" + str(values)
-    d['responses'] = values[0]
+    d['responses'] = values
     return d
 
 ==
