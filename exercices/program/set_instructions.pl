@@ -114,7 +114,7 @@ def generate_test_block(nb_object, complexity):
 def initialisation_code(nb_object):
     L = ["int a;", "int b;", "int c;", "int d;", "int e;"]
     code = '\n'.join(L[0:nb_object])
-    # code += '\n'
+    code += '\n'
     for i in range(nb_object):
         code += '\n' + objects[i] + " = " + alea_liste(constants) + ";"
     return code + '\n'
