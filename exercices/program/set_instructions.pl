@@ -192,6 +192,12 @@ def build(dic):
 
 ==
 
+consistency==
+def check_consistency(dic):
+    return True, ""
+==
+    
+
 form==
 <div class="input-group">
 <span class="input-group-addon">Réponse</span>
