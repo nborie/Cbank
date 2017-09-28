@@ -117,7 +117,7 @@ def initialisation_code(nb_object):
     code += '\n'
     for i in range(nb_object):
         code += '\n' + objects[i] + " = " + alea_liste(constants) + ";"
-    return code + '\n'
+    return code 
 
 def generate_thread_code(nb_object, complexity, max_entry=None):
     L = alea_split(complexity, max_entry)
