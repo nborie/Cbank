@@ -233,7 +233,7 @@ def build(dic):
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = terminal_code(code)
+    d['text'] = "```C\n"+ code + "\n```"
     d['responses'] = values
     return d
 
