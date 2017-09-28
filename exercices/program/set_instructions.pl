@@ -164,14 +164,76 @@ def get_result(nb_object, code):
 
     if len(str_values) > 1:
         return list(map(int, str_values.split(' ')))
+
+def subnlbybr(str):
+    """
+    Substitute each occurences of char '\n' by '<br />' in the string
+    `str` in argument.
+
+    EXAMPLES::
+
+        >>> subnlbybr("\\n")
+        '<br/>'
+    """
+    return "<br/>".join(str.split("\n"))
+
+def add_border(html_code,
+               font_color=None, font_family=None, font_size=None,
+               font_style=None, font_weight=None,
+               background_color=None, border_radius=None):
+    """
+    Return `html_code` but the content is placed in a box which
+    respects the arguments.
+
+    EXAMPLES::
     
+        >>> add_border("Salut!")
+        ...
+    """
+    # CSS local for the border of the div block 
+    style = 'border:1px solid black;padding:1%;margin:1%;'
+    if background_color is not None:
+        style += 'background-color: ' + background_color + ';'
+    if border_radius is not None:
+        style += 'border-radius: ' + border_radius + ';'
+    html_before = '<div style="' + style + '">'
+
+    # CSS local for the content inside the block
+    style = ''
+    if font_color is not None:
+        style += 'color: ' + font_color + ';'
+    if font_family is not None:
+        style += 'font-family: ' + font_family + ';'
+    if font_size is not None:
+        style += 'font-size: ' + font_size + ';'
+    if font_style is not None:
+        style += 'font-style: ' + font_style + ';'
+    if font_weight is not None:
+        style += 'font-weight: ' + font_weight + ';'
+    html_before += '<font style="' + style + '">'
+
+    # Ends of blocks
+    html_after = '</font></div>'
+    
+    return html_before + subnlbybr(html_code) + html_after
+
+def terminal_code(msg):
+    """
+    Return html/CSS code to display msg with a terminal look.
+
+    EXEMPLES::
+
+        >>> terminal_code(">>> 1+1\n2\n")
+        ...
+    """
+    return add_border(msg, "White", "Monospace", "0.8em", "normal", "normal", "Black", None) 
 
 def build(dic):
     d = dict(dic)
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = code
+    d['text'] = terminal_code(code)
     d['responses'] = values
     return d
 
@@ -186,5 +248,5 @@ form==
 
 evaluator==
 def evaluator(response, dic):
-    return True
+    return [True]
 ==
