@@ -10,7 +10,7 @@ tag=program|variable
 type=direct
 
 # build==
-    
+
 # import random
 # import os
 # import sys
@@ -61,7 +61,7 @@ type=direct
 #     comp_l = random.randint(0, complexity-1)
 #     comp_r = complexity-1-comp_l
 #     if roll == 0:
-#         return generate_r_value(nb_object, comp_l) + ' ' + alea_liste(binary_operations) + ' ' + generate_r_value(nb_object, comp_r)            
+#         return generate_r_value(nb_object, comp_l) + ' ' + alea_liste(binary_operations) + ' ' + generate_r_value(nb_object, comp_r)
 #     else:
 #         return '(' + generate_r_value(nb_object, comp_l) + ' ' + alea_liste(binary_operations) + ' ' + generate_r_value(nb_object, comp_r) + ')'
 
@@ -100,7 +100,7 @@ type=direct
 #     else:
 #         return alea_split(max(1, complexity-i), max_entry) + [i]
 
-    
+
 # def generate_test_block(nb_object, complexity):
 #     L = alea_split(complexity)
 #     code = 'if ' + generate_test(nb_object, L[0]) + '{\n'
@@ -118,7 +118,7 @@ type=direct
 #     for i in range(nb_object):
 #         code += '\n' + objects[i] + " = " + alea_liste(constants) + ";"
 #     return code + '\n'
-        
+
 # def generate_thread_code(nb_object, complexity, max_entry=None):
 #     L = alea_split(complexity, max_entry)
 #     code = initialisation_code(nb_object)
@@ -163,7 +163,7 @@ type=direct
 #     output.close()
 
 #     if len(str_values) > 1:
-#         return list(map(int, str_values.split(' ')))    
+#         return list(map(int, str_values.split(' ')))
 
 
 # def build(dic):
@@ -176,15 +176,15 @@ type=direct
 #     return d
 
 # ==
-    
+
 form==
 <div class="input-group">
 <span class="input-group-addon">Réponse</span>
 <input id="form_txt_answer" type="number" class="form-control" placeholder="" required>
 </div>
 ==
-    
+
 evaluator==
 def evaluator(response, dic):
     return True
-== 
+==
