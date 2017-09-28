@@ -200,7 +200,7 @@ form==
 
 evaluator==
 def evaluator(response, dic):
-    if response['answer'] == dic['vars_values'][0]:
+    if int(response['answer']) == dic['vars_values'][0]:
         return True, "Bravo"
     else:
         return False, "Essaie encore!"
