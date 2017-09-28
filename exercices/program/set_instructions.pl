@@ -185,7 +185,7 @@ def build(dic):
     code = generate_thread_code(2, 20, 5)
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = double_with_tab(code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code" 
+    d['text'] = "\n" + double_with_tab(code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code" 
     d['responses'] = values
     return d
 
