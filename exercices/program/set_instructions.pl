@@ -186,8 +186,13 @@ def build(dic):
     if 'seed' not in d:
         import time
         d['seed']=str(time.time())
-    random.seed(d['seed']) 
-    code = generate_thread_code(2, 14, 4)
+    random.seed(d['seed'])
+    d['nb_variables'] = 2
+    d['complexity'] = 12
+    d['instruct_complexity'] = 4
+    code = generate_thread_code(int(d['nb_variables']), 
+				int(d['complexity']), 
+				int(d['instruct_complexity']))
     values = get_result(2, code)
     d['vars_values'] = values
     d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code\n" + str(values)
