@@ -195,7 +195,7 @@ def build(dic):
 				int(d['instruct_complexity']))
     values = get_result(2, code)
     d['vars_values'] = values
-    d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code\n" + str(values)
+    d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable a en fin d'exécution de ce bout de code ou bien entrez Erreur en cas d'erreur durant l'exécution (division par zéro).\n"
     d['responses'] = values
     return d
 
