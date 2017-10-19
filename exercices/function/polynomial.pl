@@ -28,7 +28,7 @@ int polynome(int a, int b, int c){
 
 ==
 
-code_after==
+codeafter==
 #include <stdio.h>
     
 int main(int argc, char* argv[]){
