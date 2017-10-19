@@ -187,9 +187,12 @@ def build(dic):
         import time
         d['seed']=str(time.time())
     random.seed(d['seed'])
-    d['nb_variables'] = 2
-    d['complexity'] = 12
-    d['instruct_complexity'] = 4
+    if 'nb_variables' not in d:
+        d['nb_variables'] = 2
+    if 'complexity' not in d:
+        d['complexity'] = 12
+    if 'instruct_complexity' not in d:
+        d['instruct_complexity'] = 4
     code = generate_thread_code(int(d['nb_variables']), 
 				int(d['complexity']), 
 				int(d['instruct_complexity']))
@@ -205,7 +208,12 @@ consistency==
 def check_consistency(dic):
     return True, ""
 ==
-    
+
+
+nb_variables = 3
+complexity = 20
+instruct_complexity = 5
+
 
 form==
 <div class="input-group">
