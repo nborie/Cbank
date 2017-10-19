@@ -16,11 +16,9 @@ du programme fait parti des arguments.
 
 Ainsi, si le plus long argument est le mot *pouet*, le programme devra alors afficher:
 
-{{{
-   #########
-   # pouet #
-   #########
-}}}
+    #########
+    # pouet #
+    #########
 
 ==
 
@@ -45,6 +43,7 @@ int main(int argc, char* argv[]){
     if (current_len > len_max){
       len_max = current_len;
       ind_max = i;
+    }
   }
 
   for (i=0 ; i<len_max+4 ; i++)
