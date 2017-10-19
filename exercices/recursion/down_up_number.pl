@@ -22,12 +22,16 @@ Pour *n* qui vaut *7*, cela donnera
 ==
 
 code==
+#include <stdio.h>
+
 ... bas_haut(...){
   ...
 }
 ==
 
 solution==
+#include <stdio.h>
+    
 void bas_haut(int n){
   if (n < 1)
     return ;	
@@ -41,9 +45,8 @@ void bas_haut(int n){
 }
 
 ==
-
+    
 codeafter==
-#include <stdio.h>
 #include <stdlib.h>    
     
 int main(int argc, char* argv[]){
