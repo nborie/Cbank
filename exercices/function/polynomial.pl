@@ -23,7 +23,7 @@ code==
 
 solution==
 int polynome(int a, int b, int c){
-  return 12-(2+a)*b*b*b+7*b*c*c
+    return 12 - (2+a)*b*b*b + 7*b*c*c;
 }
 
 ==
