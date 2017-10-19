@@ -12,7 +12,9 @@ text==
 
 Compléter le programme suivant pour qu'il récupère deux chaines de
 caractères ainsi qu'un entier donné au clavier durant l'exécution du
-programme.
+programme. Une fois les données récupérées, le programme affichera les
+données avec la phrase : Bonjour <prénom> <nom>, vous avez <age>
+ans. <prénom>, <nom> et <age> devront être correctement substitué.
     
 ==
 
@@ -61,7 +63,10 @@ grader==
 from graderC import graderII
 import random
 
-tests = [["Basique", "", "Martin\nTartenpion\n99\n"]]
+tests = [["Basique", "", "Martin\nTartenpion\n99\n"],
+         ["Vieux machin", "", "Maitre\nYoda\n982\n"],
+         ["Age mental", "", "Nicolas\nBorie\n12\n"],
+         ["Jeune pousse", "", "Tom\nPouce\n28\n"]]
 
 graderII(tests)
 ==
