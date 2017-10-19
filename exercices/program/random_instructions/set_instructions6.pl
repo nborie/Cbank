@@ -17,9 +17,9 @@ def check_consistency(dic):
 ==
 
 
-nb_variables = 2
-complexity = 12
-instruct_complexity = 4
+nb_variables = 3
+complexity = 10
+instruct_complexity = 3
 
 
 form==

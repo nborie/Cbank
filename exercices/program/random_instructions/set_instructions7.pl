@@ -17,7 +17,7 @@ def check_consistency(dic):
 ==
 
 
-nb_variables = 2
+nb_variables = 3
 complexity = 12
 instruct_complexity = 4
 
