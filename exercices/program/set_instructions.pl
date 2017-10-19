@@ -183,6 +183,10 @@ def double_with_tab(str):
 
 def build(dic):
     d = dict(dic)
+    if 'seed' not in d:
+        import time
+        d['seed']=str(time.time())
+    random.seed(d['seed']) 
     code = generate_thread_code(2, 14, 4)
     values = get_result(2, code)
     d['vars_values'] = values
