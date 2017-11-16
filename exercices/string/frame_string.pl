@@ -22,6 +22,7 @@ Ainsi, si le mot est "pouet", la fonction devra alors afficher:
     #########
 
 Le cadre est espacé du mot d'un espace avant et après la chaîne.
+On affichera rien du tout si la chaîne en argument est la chaîne vide.
 ==
 
 code==
@@ -41,6 +42,9 @@ solution==
 void frame_string(char* text){
   int len=strlen(text)+4;
   int i;
+
+  if (len == 4)
+      return ;
   
   for (i=0 ; i<len ; i++)
       printf("#");
@@ -70,7 +74,7 @@ tests = [["Basique", "pouet", ""],
          ["Chaîne composé", '"deux mots"', ""],
 	 ["Chaîne vide", '""', ""],
          ["Long mot", "Anti-constitutionnellement", ""],
-	 ["Plein de mots", '"ça fait sept mots dans un mot"', ""]]
+	 ["Plein de mots", '"Cela fait sept mots dans un mot"', ""]]
 
 graderII(tests)
 ==
