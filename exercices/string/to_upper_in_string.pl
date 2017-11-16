@@ -38,6 +38,7 @@ void to_upper_in_string(char* s){
 ==
 
 codeafter==
+#include <stdio.h>
 
 int main(int argc, char* argv[]){
   to_upper_in_string(argv[1]);
