@@ -31,12 +31,16 @@ Pour n = 5, on devra voir
 ==
 
 code==
+#include <stdio.h>
+    
 ... ascii_triangle(...){
   ...
 }
 ==
 
 solution==
+#include <stdio.h>
+    
 void ascii_triangle(int n){
   int i, j;
 
@@ -50,8 +54,7 @@ void ascii_triangle(int n){
 ==
 
 codeafter==
-#include <stdio.h>
-#include <stdlib.h>    
+#include <stdlib.h>
     
 int main(int argc, char* argv[]){
   int a = atoi(argv[1]);
@@ -70,8 +73,8 @@ tests = [["Basique", "3", ""],
          ["Moyen", "6", ""],
 	 ["Vide", "0", ""]]
 
-tests.append(["Aléatoire", str(randon.randint(5, 10)), ""])
-tests.append(["Aléatoire", str(randon.randint(11, 15)), ""])
+tests.append(["Aléatoire", str(random.randint(5, 10)), ""])
+tests.append(["Aléatoire", str(random.randint(11, 15)), ""])
     
 graderII(tests)
 ==
