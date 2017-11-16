@@ -40,7 +40,7 @@ void to_upper_in_string(char* s){
 codeafter==
 
 int main(int argc, char* argv[]){
-  to_upper_in_string(argv[1])
+  to_upper_in_string(argv[1]);
   printf("%s\n", argv[1]);
   return 0;
 }
@@ -53,6 +53,7 @@ from graderC import graderII
 
 tests = [["Basique", "pouet", ""],
          ["Chaîne mélangé", '"PoUeT"', ""],
+         ["Chaîne vide", '""', ""],
 	 ["Trois mots", '"Pouet pouet TAGAda"', ""],
          ["Long mot", "Anti-ConstitutionnelleMent", ""],
 	 ["Grand mélange ascii", '"dK$#%djsDFG*&dwr#$-cwFWwdW $#e"', ""]]
