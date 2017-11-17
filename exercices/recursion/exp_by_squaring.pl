@@ -23,27 +23,24 @@ algébriste).
 ==
 
 code==
-#include <stdio.h>
-
-... bas_haut(...){
-  ...
+... exp_rap(...){
+...
 }
 ==
 
 solution==
-#include <stdio.h>
-    
-void bas_haut(int n){
-  if (n < 1)
-    return ;	
-  if (n == 1)
-    printf("1");
-  else{
-    printf("%d ", n);
-    bas_haut(n - 1);
-    printf(" %d", n);
-  }	
+
+int exp_rap(int a, int n){
+  int partial; 
+  if (n <= 0)
+    return 1;
+  partial = exp_rap(a, n/2);
+  if ((n%2))
+    return partial*partial;
+  return partial*partial*a;
 }
+    
+
 
 ==
     
@@ -52,8 +49,8 @@ codeafter==
     
 int main(int argc, char* argv[]){
   int a = atoi(argv[1]);
-
-  bas_haut(a);
+  int n = atoi(argv[2]);    
+  printf("%d puissance %d : %d\n", a, n, exp_rap(a, n));
   return 0;
 }
 ==
@@ -63,12 +60,18 @@ grader==
 from graderC import graderII
 import random
     
-tests = [["Basique", "1", ""], 
-	 ["Moyen", "5", ""],
-	 ["Erreur", "-2", ""]]
+tests = [["Basique", "1 1", ""], 
+	 ["Moyen", "12342312 0", ""],
+	 ["Négatif", "-2 5", ""]]
 
-tests.append(["Aléatoire", str(random.randint(6, 15)), ""])
-tests.append(["Aléatoire", str(random.randint(6, 15)), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
+				     str(random.randint(1, 5))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
+				     str(random.randint(1, 5))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
+				     str(random.randint(1, 5))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
+				     str(random.randint(1, 5))]), ""])
 
 graderII(tests)
 ==
