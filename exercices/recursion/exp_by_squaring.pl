@@ -14,7 +14,7 @@ text==
 entiers *a* et *n* puis retourne *a^n*. Utilisez l'algorithme de
 l'exponentiation rapide.
 
- * Pour *n = 0*, on a *a^0 = 1* (on considéra que *O^0 = 0* comme tout bon
+ * Pour *n = 0*, on a *a^0 = 1* (on considéra que *O^0 = 1* comme tout bon
 algébriste).
 
  * Si *n* est un entier pair *n = 2q*, il suffira de mettre au carré le retour de l'appel récursif calculant *a^q*.
@@ -36,8 +36,8 @@ int exp_rap(int a, int n){
     return 1;
   partial = exp_rap(a, n/2);
   if ((n%2))
-    return partial*partial;
-  return partial*partial*a;
+    return partial*partial*a;
+  return partial*partial;
 }
     
 
