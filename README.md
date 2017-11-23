@@ -117,7 +117,7 @@ int main(int argc, char* argv[]){
       tri_a_bulle_eleve(copie, nb_elem);
       affiche_tab(copie, nb_elem);
       libere_tab(copie);
-	}
+    }
 
     libere_tab(tab);
     return 0;
