@@ -16,7 +16,14 @@ dernière est substituée lors de la préproccession par une chaîne de
 caractère donnant la date de compilation du programme.
 
 Écrire une fonction *print_compilation_date* qui affichera lors de son
-appel la date de compilation du programme.
+appel la phrase suivante :
+
+    
+    Le programme à été compilé le XXXXX.
+
+    
+Il faudra remplacer XXXXX par date de compilation du programme et ne
+pas oublier le retour à la ligne en fin de phrase. 
 
 ==
 
@@ -30,7 +37,7 @@ code==
 
 solution==
 void print_compilation_date(){
-  printf("Le programme à été compilé le %s\n", __DATE__);
+  printf("Le programme à été compilé le %s.\n", __DATE__);
 }
 ==
 
