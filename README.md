@@ -48,7 +48,7 @@ en place de tests aléatoire avec comparaison avec un tri valide
 En C, le prof doit fournir ou encore l'étudiant doit utiliser un code
 similaire à ce qui suit pour mettre en place ces tests :
 
-
+```c
     #include <stdio.h>
     #include <stdlib.h>
     #include <time.h>
@@ -124,9 +124,11 @@ similaire à ce qui suit pour mettre en place ces tests :
       }
       return 1;
      }
+```
 
 Alors qu'en python, ce qui suit ferait le même travail :
 
+```python
     import random
     
     def tri_a_bulle_eleve(L):
@@ -138,6 +140,7 @@ Alors qu'en python, ce qui suit ferait le même travail :
     print(L)
     tri_a_bulle_eleve(M)
     print(M)
+```
 
 Premier langage avec Cbank a pour but de proposer des exercices en C
 où l'on se focalise sur l'essentiel coté élève et où les enseignants
