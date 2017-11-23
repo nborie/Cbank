@@ -9,7 +9,7 @@ tag=macro|function
 template=/template/autograderC
 
 text==
-    
+
 Le compilateur *gcc* possède quelques macro prédéfinie et
 adaptative. Parmi ces dernières, il y a la macro *__date__*. Cette
 dernière est substituée lors de la préproccession par une chaîne de
@@ -17,7 +17,7 @@ caractère donnant la date de compilation du programme.
 
 Écrire une fonction *print_compilation_date* qui affichera lors de son
 appel la date de compilation du programme.
-    
+
 ==
 
 code==
@@ -29,23 +29,21 @@ code==
 ==
 
 solution==
-
-void print_compilation_date(void){
+void print_compilation_date(){
   printf("Le programme à été compilé le %s\n", __DATE__);
 }
-
 ==
 
-codebefore==
- 
-#include <stdio.h>
-   
-==    
-    
-codeafter==
- 
-int main(int argc, char* argv[]){
 
+codebefore==
+
+#include <stdio.h>
+==
+
+codeafter==
+
+int main(int argc, char* argv[]){
+  print_compilation_date();
 
   return 0;
 }
@@ -54,7 +52,7 @@ int main(int argc, char* argv[]){
 
 grader==
 from graderC import graderII
- 
-tests = [["Exécution simple", "",""]] 
+
+tests = [["Exécution simple", "",""]]
 graderII(tests)
 ==
