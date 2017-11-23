@@ -17,6 +17,8 @@ initialiser ce tableau avec des lettres minuscules, en commançant par
 'a' et de manière croissante en ligne et en colonne. Quand on arrive
 au 'z', on boucle en revenant sur la lettre 'a'.
 
+Voici un exemple du contenu de la variable *tab* pour 11 lignes et 19 colonnes.
+
     a b c d e f g h i j k l m n o p q r s
     b c d e f g h i j k l m n o p q r s t
     c d e f g h i j k l m n o p q r s t u
@@ -72,7 +74,7 @@ int main(int argc, char* argv[]){
   int i;
 
   char** tab = malloc(n*sizeof(char*));
-  for (i=0 ; i<m ; i++)
+  for (i=0 ; i<n ; i++)
     tab[i] = malloc(m*sizeof(char));
  
   init_tab_2d(tab, n, m);
