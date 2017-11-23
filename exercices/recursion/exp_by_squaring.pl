@@ -45,7 +45,8 @@ int exp_rap(int a, int n){
 ==
     
 codeafter==
-#include <stdlib.h>    
+#include <stdlib.h>
+#include <stdio.h>    
     
 int main(int argc, char* argv[]){
   int a = atoi(argv[1]);
@@ -64,14 +65,14 @@ tests = [["Basique", "1 1", ""],
 	 ["Moyen", "12342312 0", ""],
 	 ["Négatif", "-2 5", ""]]
 
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
+tests.append(["Aléatoire", ' '.join([str(random.randint(-5, 5)),
 				     str(random.randint(1, 5))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
-				     str(random.randint(1, 5))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
-				     str(random.randint(1, 5))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 5)),
-				     str(random.randint(1, 5))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(-6, 6)),
+				     str(random.randint(1, 6))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(-7, 7)),
+				     str(random.randint(1, 7))]), ""])
+tests.append(["Aléatoire", ' '.join([str(random.randint(-8, 8)),
+				     str(random.randint(1, 8))]), ""])
 
 graderII(tests)
 ==
