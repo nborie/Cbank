@@ -47,7 +47,7 @@ void init_tab_2d(char** tab, int n, int m){
 
   for(i=0 ; i<n ; i++){
     for(j=0 ; j<m ; j++){
-      tab[i][j] = 'a' + (i+j % 26);
+      tab[i][j] = 'a' + ((i+j) % 26);
     }
   }
 }
