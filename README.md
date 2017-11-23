@@ -63,7 +63,7 @@ int tab_aleatoire(int* tab, int max_elem, int nb_elem){
   tab = malloc(nb_elem*sizeof(int));
   if (!tab){
     fprintf(stderr, "Erreur d'allocation mémoire.\n");
-	return 0;
+    return 0;
   }
   for (i=0 ; i<nb_elem ; i++)
     tab[i] = rand() % max_elem;
@@ -96,7 +96,7 @@ int* copie_tab(int* tab, int taille){
   copie = malloc(taille*sizeof(int));
   if (!copie){
     fprintf(stderr, "Erreur d'allocation mémoire.\n");
-	return NULL;
+    return NULL;
   }
   for (i=0 ; i<taille ; i++)
     copie[i] = tab[i];
@@ -111,16 +111,16 @@ int main(int argc, char* argv[]){
 
   if (tab_alea(tab, max_elem, nb_elem)){
     qsort(tab, nb_elem, sizeof(int), cmp_int);
-	affiche_tab(tab, nb_elem);
+    affiche_tab(tab, nb_elem);
 
-	if ((copie = copie_tab(tab, nb_elem))){
+    if ((copie = copie_tab(tab, nb_elem))){
       tri_a_bulle_eleve(copie, nb_elem);
-	  affiche_tab(copie, nb_elem);
-	  libere_tab(copie);
+      affiche_tab(copie, nb_elem);
+      libere_tab(copie);
 	}
 
     libere_tab(tab);
-	return 0;
+    return 0;
   }
   return 1;
 }
