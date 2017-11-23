@@ -10,3 +10,7 @@ Dominique Revuz.
 Cbank propose une collection d'exercice dont certains sont statiques,
 dynamiques, aléatoires ou encore demandant compilation et exécution.
 Cbank est plus ou moins supervisé par Nicolas Borie.
+
+Le classement des ressources pédagogiques est hiérarchisé via une
+ontologie ordonnée des concepts du langage C.
+
