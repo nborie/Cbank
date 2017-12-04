@@ -52,12 +52,7 @@ codebefore==
 codeafter==
 int main(int argc, char* argv[]){
 
-  int b = count(argv[1],argv[2][0]);
-
-  if (atoi(argv[3]) != b)
-      printf("Marche pas %d %d",b,atoi(argv[3]));
-  else
-    printf("Marche %d",b);
+ printf("Y a %d %c dans %s",count(argv[1],argv[2][0]),argv[2][0],argv[1]);
 
   return 0;
 }
