@@ -63,8 +63,8 @@ int main(int argc, char* argv[]){
 
   int b = endswith(argv[1],argv[2]);
 
-  if (atoi(argv[3]) != b)
-      printf("Marche pas %d %d  ",b,atoi(argv[3]));
+  if (b)
+      printf("Marche pas %d ",b);
   else
     printf("Marche");
 
