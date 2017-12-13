@@ -75,11 +75,11 @@ int main(int argc, char* argv[]){
 grader==
 from graderC import graderII
 
-tests = [["Petit mot", "mot", ""], 
-         ["Un mot", "Bonjour", ""], 
-         ["Deux mots", "mots", ""], 
-         ["Mot vide", "", ""], 
-         ["le motif est au debut", "le motif", "0"]] 
+tests = [["Petit mot", "Petit_mot mot", ""], 
+         ["Identique", "Bonjour Bonjour", ""], 
+         ["Fin plus grand que le mot ", "mots lafintreslongue", ""], 
+         ["Apparait plusieurs fois ", "aaaaaa aa", ""], 
+         ] 
 
 graderII(tests)
 ==
