@@ -43,10 +43,10 @@ int endswith(char* s, char*fin){
  /*votre code ici */
  int ls=strlen(s);
  int lf=strlen(fin);
-
+ int i;
   if (lf==0) return 1;
   if (lf>ls) return 0;
-  for(int i=0; i<lf;i++)
+  for(i=0; i<lf;i++)
     if (s[i+(ls-lf)]!=fin[i]) return 0;
   
   return 1;
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]){
   int b = endswith(argv[1],argv[2]);
 
   if (b)
-      printf("Marche pas %d ",b);
+      printf("Marche pas %d",b);
   else
     printf("Marche");
 
@@ -78,7 +78,8 @@ from graderC import graderII
 tests = [["Petit mot", "Petit_mot mot", ""], 
          ["Identique", "Bonjour Bonjour", ""], 
          ["Fin plus grand que le mot ", "mots lafintreslongue", ""], 
-         ["Apparait plusieurs fois ", "aaaaaa aa", ""], 
+         ["Apparait plusieurs fois ", "aaaaaa aa", ""],
+         ["N\'apparait pas","ksjlhqflqk dshfqj",""],
          ] 
 
 graderII(tests)
