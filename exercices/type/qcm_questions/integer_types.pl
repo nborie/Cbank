@@ -1,9 +1,9 @@
 title=Les variables en C
+type=direct
+template=../plbank/gift/template/multiplechoices_template.pl
 text==
 Parmi les types suivants, lesquels sont des types C entiers.
 ==
-type=direct
-template=../plbank/gift/template/multiplechoices_template.pl
 answer1=int
 answer2=float
 answer3=unsigned char

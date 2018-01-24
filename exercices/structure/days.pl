@@ -2,6 +2,8 @@
 #
 # Déclaration d'une structure C pour les jours de la semaine
 
+# DR : FIXME : je pense pas que cet exercice soit utilisable 
+
 author=Nicolas Borie
 name=Structure C pour les jours de la semaine
 title=Structure C pour les jours de la semaine

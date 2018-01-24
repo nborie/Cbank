@@ -1,6 +1,6 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
 author=Nicolas Borie
-name=Mettre au carré les éléments d'un tableau
+
 title=Mettre au carré les éléments d'un tableau
 tag=array
 template=/template/autograderC
