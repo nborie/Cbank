@@ -1,6 +1,8 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
+# Copyright 2018 Dominique <dr@u-pem.fr>
+#  
 #
-# Déclaration d'une strcture C pour des points 2 dimensions entiers
+#  pgcd
 
 author=Dominique Revuz
 name=  Pgcd à la Mode

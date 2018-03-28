@@ -9,15 +9,18 @@ tag=array
 template=/template/autograderC
 
 text==
-Écrire une fonction C *average_array* qui prend en argument un
-tableaux d'entiers ainsi que sa taille et retourne un flotant qui est
+Écrire une fonction C **average_array** qui prend en argument un
+tableaux d'entiers sous la forme d'un pointeur et de sa taille et retourne un flotant qui est
 la moyenne des éléments contenus dans le tableaux. Par convention, la
 moyenne d'un tableau vide devra être zéro.
 
+
+
+Rappel: la moyenne est la somme des élements divisée par le nombre d'élements.
 ==
 
 code==
-... average_array(...){
+float average_array(...){
     /* Votre code ici */
 }
 

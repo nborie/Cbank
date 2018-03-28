@@ -174,15 +174,9 @@ def build(dic):
         import time
         d['seed']=str(time.time())
     random.seed(d['seed'])
-    if 'nb_variables' not in d:
-        d['nb_variables'] = 2
-    if 'complexity' not in d:
-        d['complexity'] = 12
-    if 'instruct_complexity' not in d:
-        d['instruct_complexity'] = 4
-    code = generate_thread_code(int(d['nb_variables']), 
-				int(d['complexity']), 
-				int(d['instruct_complexity']))
+    code = generate_thread_code(int(d.get('nb_variables',2)), 
+				int(d.get('complexity',12)), 
+				int(d.get('instruct_complexity',4)))
     values = get_result(2, code)
     d['vars_values'] = values
     d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable **a** en fin d'exécution de ce bout de code ou bien entrez **Erreur** en cas d'erreur durant l'exécution (division par zéro).\n"

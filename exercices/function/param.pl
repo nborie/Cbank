@@ -4,7 +4,7 @@
 
 author=Dominique Revuz
 name= Its
-title= Passe le moi au carré
+title= Passe le moi au Cube
 tag=function
 template=/template/autograderC
 
