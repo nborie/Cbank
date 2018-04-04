@@ -57,7 +57,8 @@ int main(int argc, char* argv[]){
 
 
 grader==
-from graderC import graderI
+
+from graderC import graderI, graderII
 
 def bl(indice):
     l=[]
