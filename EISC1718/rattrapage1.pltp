@@ -19,9 +19,10 @@ Dominique
 
 ==
 
-concept==tableaux
+
 @ /exercices/array/initcarre.pl
 @ /exercices/array/initialise.pl
 @ /exercices/array/intervalTabMax.pl
 @ /exercices/array/position.pl
-==
+concept=tableaux
+
