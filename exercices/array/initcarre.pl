@@ -9,9 +9,10 @@ template=/template/autograderC
 
 text==
 
-Ecrire une fonction *newtab* qui prend en paramètre **n** et **tab** l'adresse du tableau et retourne le tableau de n entiers et initialisé avec les valeurs des carrés de 1 à $$n^{2}$$.
+Ecrire une fonction *newtab* qui prend en paramètre **n** et **tab** 
+l'adresse du tableau et retourne le tableau de n entiers et initialisé avec les valeurs des carrés de 1 à $%n^{2}%$.
     
-Si n est négatif ou nul la fonction retourne NULL.
+Si n est négatif ou nul la fonction retourne NULL (définie dans stdio.h).
 ==
 code==
 int* initialiseTableau(...) {
@@ -85,4 +86,9 @@ tests.append(["Aléatoire", str(random.randint(1, 20)), ""])
 
 graderII(tests)
 ==
+
+
+
+
+
 
