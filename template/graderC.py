@@ -286,12 +286,12 @@ class C_unit_test():
         Return the command use to execute the test `self`.
         """
         if len(self.stdin()) > 0:
-            cmd = "cat {} | ./{} {} > {}".format(self.stdin_path(),
+            cmd = "./{}  {} < {} > {} 2>&1".format(
                                                  self.programm_path(),
-                                                 self.command_args(),
+                                                 self.command_args(),self.stdin_path(),
                                                  self.output_path())
         else:
-            cmd = "./{} {} > {}".format(self.programm_path(),
+            cmd = "./{} {} > {}  2>&1".format(self.programm_path(),
                                               self.command_args(),
                                               self.output_path())
         return cmd
