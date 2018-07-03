@@ -20,7 +20,7 @@ lettres minuscules ne seront pas affectés par la fonction.
 ==
 
 code==
-... to_upper_in_string(...){
+void to_upper_in_string(...){
   ...
 }
 

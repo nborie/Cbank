@@ -9,8 +9,8 @@ tag=structure
 template=/template/autograderC
 
 text==
-Déclarer et définir une *structure* C nommé *Point2d*. Cette structure
-devra contenir deux champs entiers nommé *abs* pour abcisse et *ord*
+Déclarer et définir une *structure* C nommé **Point2d**. Cette structure
+devra contenir deux champs entiers nommé **abs** pour abcisse et **ord**
 pour ordonné.
 
 ==
@@ -18,6 +18,8 @@ pour ordonné.
 code==
 typedef
 
+
+Point2d;
 ==
 
 solution==
@@ -35,7 +37,7 @@ codeafter==
 int main(int argc, char* argv[]){
   Point2d G = {12, -3};
 
-  printf("Le point G est bien declare et a pour abcisse %d et ordonne %d.\n", G.abs, G.ord);
+  printf("Le point G est bien declare et a pour abcisse 12==%d et ordonne -3==%d.\n", G.abs, G.ord);
   return 0;
 }
 

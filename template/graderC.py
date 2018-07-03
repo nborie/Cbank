@@ -33,16 +33,14 @@ import os
 import sys
 import json
 
-from feedbackC import generate_feedback_compilation, generate_feedback_test, global_message
+from feedbackC import  Feedback, subnlbybr
 
 ##########################################################################
 #  Initialization of dico_reponse add a champ compilation for C langage  #
 #        Get the exercice content                                        #
 ##########################################################################
 
-dico_reponse = { "success": False , "errormessages" : "" ,
-                 "execution": "Plateforme Error", "feedback": "",
-                 "other": "", "compilation" : "erreur" }
+
 
 exercice = json.load(open("pl.json","r"))
 
@@ -76,9 +74,12 @@ class PreActionsAndCompile():
         
         self._exec_path = None
         self._added_context = False # flag to know if the contextual has been added
-        self._feedback = ""
+        self._feedback = Feedback()
+        self._feedbackd= []
+        self._feedback_class = Feedback()
         self._compilation_state = None
-
+        
+        
     def __str__(self):
         """
         Return a string describing `self`.
@@ -124,7 +125,7 @@ class PreActionsAndCompile():
         """
         """
         if self._compilation_state is not None:
-            return self._feedback
+            return self._feedback   #ici bug car renvoi feedback et pas div
         self.compile()
         return self._feedback        
     
@@ -155,6 +156,28 @@ class PreActionsAndCompile():
             file_src.write(content_src)
             file_src.close()    
 
+    def generate_feedback_compilation(self,flags, compil_state):
+      
+        if compil_state == "error":
+            gcc_state = 'Erreur'
+        else:
+            gcc_state = 'Réussie'
+        compil_fb = 'Compilation'
+        if len(flags) > 0:
+            compil_fb += ' avec drapeaux ' + flags
+        compil_fb += ' :'+ gcc_state +'<br />' 
+
+        if compil_state == "error":
+            compil_fb += 'Il y a des erreurs à la compilation de votre programme.'
+        else:
+            compil_fb += 'Compilation parfaite, <b>gcc</b> ne retourne ni warning ni erreur.<br />'
+            
+        if compil_state == "error":
+            compil_fb += '<br />Feedback provenant de gcc: <br />'
+            #compil_fb += self.terminal_code(gcc_msg)
+
+        return compil_fb;
+
     def compile(self):
         self.add_context()
 
@@ -176,32 +199,47 @@ class PreActionsAndCompile():
 
         # If there is some compilation errors
         if "error:" in err_out:
+            
             self._compilation_state = "error"
             # self._feedback = "Il y a des erreurs à la compilation de votre programme:\nFeedback gcc:\n" + err_out + "\n"
-            self._feedback = generate_feedback_compilation(self.flags(), self._compilation_state, err_out)
+            #self._feedback_class.addFeedback(self._feedback_class.generate_feedback_compilation(self.flags(), self._compilation_state, err_out))
+            self._feedback = self._feedback_class.feedbacktext
+            self._feedback_class.adddiv("errcompil",self.generate_feedback_compilation(self.flags(),"error"))
+            self._feedback_class.adddiv("errcompilfin",subnlbybr(err_out))
+
+            
             return None
 
         # If there is some warnings in standard error (it happen...)
         if "warning:" in err_out:
-            self._compilation_state = "warning"
+            self._compilation_state = "error"
             # self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + err_out + "\n"
-            self._feedback = generate_feedback_compilation(self.flags(), self._compilation_state, err_out)
+            
+            #self._feedback_class.addFeedback(self._feedback_class.generate_feedback_compilation(self.flags(), self._compilation_state, err_out))
+            self._feedback = self._feedback_class.feedbacktext
+            self._feedback_class.adddiv("errcompil",self.generate_feedback_compilation(self.flags(),"error"))
+            self._feedback_class.adddiv("errcompilfin",subnlbybr(err_out))
+
             return None
 
         # Sometimes warnings are thrown by standard output
         if "warning:" in std_out:
             self._compilation_state = "warning"
             # self._feedback = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\nFeedback gcc:\n" + std_out + "\n"
-            self._feedback = generated_feedback_compilation(self.flags(), self._compilation_state, std_out)
+            self._feedback_class.addFeedback(self._feedback_class.generate_feedback_compilation(self.flags(), self._compilation_state, std_out))
+            self._feedback = self._feedback_class.feedbacktext
+
             return None
 
         # if len(self.flags()) > 0: # No quality cheching flag compilation
         #     self._feedback = "Votre programme semble être écrit correctement (compilation avec "+ self.flags() +").\n"
         # else: # Some quality flags compilation
         #     self._feedback = "Votre programme semble être écrit correctement.\n"
-        self._compilation_state = "perfect"
-        self._feedback = generate_feedback_compilation(self.flags(), self._compilation_state, "")
-
+        self._compilation_state = ""
+        #self._feedback_class.addFeedback(self.generate_feedback_compilation(self.flags(), self._compilation_state))
+        self._feedback = self._feedback_class.feedbacktext
+        self._feedback_class.adddiv("compil",self.generate_feedback_compilation(self.flags(),""))
+       
         
 ####################################################################
 #               A class for a single C unitary test                #
@@ -238,8 +276,8 @@ class C_unit_test():
 
         self._output_path = "output.log"
         self._stdin_path = "stdin.log"
-        self._feedback = ""
-        self._result = None
+        self._feedback = Feedback()
+        self._success = None
 
     def __str__(self):
         """
@@ -307,23 +345,24 @@ class C_unit_test():
         """
         Return brut text feedback for the test `self`.
         """
-        if self._result is not None:
+        if self._success is not None:
             return self._feedback
         else:
             self.run_test()
+            
             return self._feedback
 
-    def result(self):
+    def result(self, i):
         """
         Return the result of the test `self`. Lanch the test if the result
         """
-        if self._result is not None:
-            return self._result
+        if self._success is not None:
+            return self._success
         else:
-            self.run_test()
-            return self._result
+            self.run_test(i)
+            return self._success
 
-    def run_test(self):
+    def run_test(self, i):
         """
         Run the test `self`. A call to this method update the feedback
         and the result of the test. You should normally never call
@@ -363,15 +402,21 @@ class C_unit_test():
 
         # Update result of the test
         if len(diff_output) == 0:
-            self._result = True
+            self._success = True
         else:
-            self._result = False
-
-        feedback = generate_feedback_test(self._result, self._name, self.command_args(),
-                                          self.stdin(), output_exec, self.expected_output())
-
+            self._success = False
+        code = ''
+        code += format(self._name)
+        if self.command_args() != "":
+            code += '({})<br />'.format(self.command_args())
+        code += ' Attendue : <br />' + Feedback.resultat(self,self.expected_output())
+        code += ' Obtenue : <br />' + Feedback.resultat(self,output_exec)
+        
+         
+        self._feedback.addFeedback(self._feedback.buttoncollapse(self._success, i, code))
+      
         # Update the feedback
-        self._feedback = feedback
+        self._feedback = self._feedback.feedbacktext
 
 
 ####################################################################
@@ -392,7 +437,7 @@ class Play_tests():
     def __init__(self, tests, executable_path):
         self._tests = tests
         self._executable_path = executable_path
-        self._feedback = []
+        self._feedback = Feedback()
         self._result = None
 
     def __str__(self):
@@ -420,6 +465,7 @@ class Play_tests():
             return self._result
         else:
             self.run_tests()
+            
             return self._result
 
     def feedback(self):
@@ -428,27 +474,51 @@ class Play_tests():
         """
         if self._result is None:
             self.run_tests()
-        return self._feedback
+        return self._feedback.feedback()
 
-    def run_tests(self):
+    def run_tests(self):                     #ici pour voir si arrete premiere erreur
         # be positive at first glance
         all_test_pass = True
-        self._feedback = []
+        self._feedbackl = []
+        verbose=True
         
         # for each test inside the list (which is ordered...)
+        i = 0
+        totalf = 0
         for test in self.tests():
+            
             test_name = test[0]
             cmd_arg = test[1]
             stdin = test[2]
             expected_output = test[3]
 
             test_instance = C_unit_test(test_name, cmd_arg, stdin, expected_output, self.executable_path())
-            if not test_instance.result():
+            if not test_instance.result(i):
+                totalf+=1
                 all_test_pass = False
-            self._feedback.append([test_name,  test_instance.feedback()])
+            self._feedbackl.append([test_name,  test_instance.feedback()])
+            self._feedback.addsymbole(test_instance.feedback(),i,test_instance.result(i))
+            i += 1
+            if 'mode' in exercice and exercice['mode']==2 and totalf>=1:
+                break;
+        if verbose:
+            self._feedbackl.append(["nb_test","nombre de test: "+str(i)+"\n"+str(i-totalf)+" reussit et "+str(totalf)+ " ratés\n"])
+            text="nombre de test:" +str(i)+"\n"+str(i-totalf)+" reussit et "+str(totalf)+ " ratés\n"
+
+        if totalf:
+            text+="***Tests échoués***"
+            self._feedbackl.append(["resul","***Tests échoués***"])
+            self._feedback.adddiv("fresume",text)
+
+        elif verbose:
+            text+="***Tests validés***"
+            self._feedbackl.append(["resul","***Tests validés***"])
+            self._feedback.adddiv("vresume",text)
 
         # we set the result for this instance to True if all test pass only
         self._result = all_test_pass
+        self._feedback.success=all_test_pass
+        
 
 
 ####################################################################
@@ -532,23 +602,29 @@ def graderI(tests, flags="-Wall -ansi"):
     The compiling and linking `flags` will be used during this process. Then,
     for each test inside the dictionnary,
     """
+    
     compilation = PreActionsAndCompile("basic.c", exercice)
     compilation.compile()
+    dico_reponse = { "success": False , "errormessages" : "" ,
+                 "execution": "Plateforme Error", "feedback":compilation._feedback_class.feedback(),
+                 "other": "", "compilation" : "erreur" }
     dico_reponse['compilation_state'] = compilation.compilation_state()
-    dico_reponse['compilation_feedback'] = compilation.feedback()
+    dico_reponse['compilation_feedback'] = compilation.feedback() 
     
     if compilation.compilation_state() == "error":
         dico_reponse['success'] = False
-        dico_reponse['feedback'] = compilation.feedback()
+        compilation._feedback_class.addCompilationError("")
+        dico_reponse['feedback'] = compilation._feedback_class.feedback()
     else:
         testsuite = Play_tests(tests, compilation.exec_path())
         testsuite.run_tests()
-        dico_reponse['feedback'] = compilation.feedback()
-        for name, feedbacktest in testsuite.feedback():
-            dico_reponse['feedback'] += feedbacktest
+        dico_reponse['feedback'] = compilation._feedback_class.feedback()
+        #for name, feedbacktest in testsuite._feedbackl:
+        dico_reponse['feedback'] += testsuite._feedback.feedback()
+        
         dico_reponse['success'] = testsuite.result()
        
-    dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
+    #dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
     
     print(json.dumps(dico_reponse))
     sys.exit()
