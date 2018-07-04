@@ -324,12 +324,12 @@ class C_unit_test():
         Return the command use to execute the test `self`.
         """
         if len(self.stdin()) > 0:
-            cmd = "cat {} | ./{} {} > {}".format(self.stdin_path(),
-                                                 self.programm_path(),
+            cmd = "./{} {} < {} > {} 2>&1".format(self.programm_path(),
                                                  self.command_args(),
+                                                 self.stdin_path(),
                                                  self.output_path())
         else:
-            cmd = "./{} {} > {}".format(self.programm_path(),
+            cmd = "./{} {} > {} 2>&1".format(self.programm_path(),
                                               self.command_args(),
                                               self.output_path())
         return cmd
@@ -654,3 +654,6 @@ def graderII(tests, flags="-Wall -ansi"):
     generate_output_from_solution(tests)
     # Since tests are completed with expected output, call graderI
     graderI(tests, flags=flags)
+
+
+
