@@ -5,7 +5,7 @@
 author=Dominique Revuz
 name=Allocation d'une structure Couleur avec 3 entiers
 title=Allocation d'une structure Couleur avec 3 entiers
-tag=structure|malloc|function
+tag=structure|malloc|funciton
 template=/template/autograderC
 
 text==
@@ -58,7 +58,9 @@ codebefore==
 ==
 
 
-codeafter== 
+codeafter==
+
+ 
 int main(int argc, char* argv[]){
 Color *s;
 
@@ -84,6 +86,7 @@ tests = [["Simple", "Rouge 255 0 0", ""],
 
 for i in range(3):
     tests.append(["Couleur aléatoire", "'Couleur aléatoire' " + str(randint(0,255)) + " " + str(randint(0,255)) + " " + str(randint(0,255)), "" ])
+
 
 graderII(tests)
 ==

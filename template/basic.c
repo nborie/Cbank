@@ -1,2 +1,1 @@
-#include "student.py"
-
+#include "student"

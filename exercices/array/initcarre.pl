@@ -86,9 +86,3 @@ tests.append(["Aléatoire", str(random.randint(1, 20)), ""])
 
 graderII(tests)
 ==
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 author=Elise Hardy et DR
 title=Ecrire une fonction qui renvoie le maximum dans un intervalle d'un tableau d'entiers
 tag=function
-template=/template/autograderC
+template=/template/autograderC.pl
 
 text==
 

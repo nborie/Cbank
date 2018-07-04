@@ -47,11 +47,11 @@ grader==
 from graderC import graderII
 import random
     
-tests = [["Basique", "0 0 0", ""]]
+tests = [["polynome", "0 0 0", ""]]
 
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(3)]), ""])
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(3)]), ""])
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(3)]), ""])
+tests.append(["polynome","1 1 1",""])
+tests.append(["polynome","1 2 3",""])
 
 graderII(tests)
 ==
+

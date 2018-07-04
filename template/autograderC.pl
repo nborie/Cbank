@@ -14,13 +14,15 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 
 ==
 
-
+type=sandbox
 
 # chargement des fichiers utiles 
-@ /template/basic.c
-@ /template/graderC.py
-@ /template/feedbackC.py
-@ /template/__init__.py
+@/template/basic.c
+@/template/graderC.py
+@/template/feedbackC.py
+@/template/__init__.py
+@/template/templateC.html
+@/template/templateConglet.html
 
 
 # interface exercice standard plbank
@@ -31,4 +33,6 @@ from graderC import grade
 grade()
 ==
 
-
+expectedoutput==
+NE SERT A RIEN SI TOUT VA BIEN...
+==

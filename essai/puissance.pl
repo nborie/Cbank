@@ -10,14 +10,14 @@ template=/template/autograderC
 
 text==
 
-Écrire une function *puissance* qui prend en argument 2 entiers *n* et 
+Écrire une fonction *puissance* qui prend en argument 2 entiers *n* et 
 *p* et qui retourne n^p. p doit etre positif.
 
 ==
 
 code==
-#Votre code ici
-  
+/*Votre code ici*/
+
 
 ==
 
@@ -54,8 +54,8 @@ grader==
 from graderC import graderII
 import random
     
-tests = [["Basique", "2 5", ""]
-			["Impossible", "8 -4", ""]]
+tests = [["Basique", "2 5", ""],
+            ["Impossible", "8 -4", ""]]
 
 tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(2)]), ""])
 tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(2)]), ""])
