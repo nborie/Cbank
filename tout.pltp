@@ -1,0 +1,99 @@
+
+
+@ ntroduction==
+
+
+@ oici tout les exercices disponible sur la plateforme 
+@ ans aucun ordre.
+
+@ aites ce que vous en pouvez 
+
+@ ndiquez moi ceux qui ne vous semble pas correctes.
+@ Dominique
+@ =
+
+
+@ /exercices/structure/point2d.pl
+@ /exercices/structure/alloccouleur.pl
+@ /exercices/structure/randstructinit.pl
+@ /exercices/structure/people.pl
+@ /exercices/structure/days.pl
+@ /exercices/type/qcm_questions/float_init.pl
+@ /exercices/type/qcm_questions/initialiseurs.pl
+@ /exercices/type/qcm_questions/int_init.pl
+@ /exercices/type/qcm_questions/reponses.pl
+@ /exercices/type/qcm_questions/integer_types.pl
+@ /exercices/type/qcm_questions/identifiants1.pl
+@ /exercices/type/qcm_questions/identifiants2.pl
+@ /exercices/type/qcm_questions/identifiants3.pl
+@ /exercices/type/qcm_questions/char_init.pl
+@ /exercices/type/qcm_questions/identifiants.pl
+@ /exercices/string/countvoyelle.pl
+@ /exercices/string/strlenght.pl
+@ /exercices/string/asvoyelle.pl
+@ /exercices/string/to_upper_in_string.pl
+@ /exercices/string/count.pl
+@ /exercices/string/count_lower_case.pl
+@ /exercices/string/in.pl
+@ /exercices/string/long_argument.pl
+@ /exercices/string/frame_string.pl
+@ /exercices/string/endswith.pl
+@ /exercices/array/sum_of_positives.pl
+@ /exercices/array/intervalTabMax.pl
+@ /exercices/array/init2dtab.pl
+@ /exercices/array/initcarre.pl
+@ /exercices/array/apply_square.pl
+@ /exercices/array/average.pl
+@ /exercices/array/displayarray.pl
+@ /exercices/array/position.pl
+@ /exercices/array/initialise.pl
+@ /exercices/switch/switch1.pl
+@ /exercices/function/incremente.pl
+@ /exercices/function/min_of_three.pl
+@ /exercices/function/puissance.pl
+@ /exercices/function/pgcdbibi.pl
+@ /exercices/function/loop_triangle.pl
+@ /exercices/function/max_of_three.pl
+@ /exercices/function/has_vowel.pl
+@ /exercices/function/polynomial.pl
+@ /exercices/function/fiborec.pl
+@ /exercices/function/dynapolynomial.pl
+@ /exercices/function/param.pl
+@ /exercices/function/meanofthree.pl
+@ /exercices/tableaux/fusionTriTab.pl
+@ /exercices/tableaux/supprimeDoublons.pl
+@ /exercices/tableaux/triTabInsertion.pl
+@ /exercices/tableaux/alloueTab.pl
+@ /exercices/tableaux/copieTab.pl
+@ /exercices/tableaux/com23.pl
+@ /exercices/tableaux/redimention.pl
+@ /exercices/tableaux/com12.pl
+@ /exercices/macro/graphic_constants.pl
+@ /exercices/macro/date.pl
+@ /exercices/macro/square.pl
+@ /exercices/input_output/uncalcul.pl
+@ /exercices/input_output/somme.pl
+@ /exercices/input_output/person.pl
+@ /exercices/program/hello.pl
+@ /exercices/program/random_instructions/set_instructions2.pl
+@ /exercices/program/random_instructions/set_instructions6.pl
+@ /exercices/program/random_instructions/set_instructions8.pl
+@ /exercices/program/random_instructions/set_instructions1.pl
+@ /exercices/program/random_instructions/set_instructions4.pl
+@ /exercices/program/random_instructions/set_instructions3.pl
+@ /exercices/program/random_instructions/set_instructions5.pl
+@ /exercices/program/random_instructions/set_instructions7.pl
+@ /exercices/program/arguments.pl
+@ /exercices/program/order_calls.pl
+@ /exercices/program/set_instructions.pl
+@ /exercices/program/qcm_questions/entier.pl
+@ /exercices/program/qcm_questions/code.pl
+@ /exercices/program/qcm_questions/sources.pl
+@ /exercices/program/qcm_questions/utilisation.pl
+@ /exercices/program/qcm_questions/structuration.pl
+@ /exercices/program/qcm_questions/fonction_main.pl
+@ /exercices/program/qcm_questions/variables.pl
+@ /exercices/program/qcm_questions/fonction.pl
+@ /exercices/recursion/down_up_number.pl
+@ /exercices/recursion/exp_by_squaring.pl
+

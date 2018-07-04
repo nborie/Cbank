@@ -578,3 +578,4 @@ def graderII(tests, flags="-Wall -ansi"):
     generate_output_from_solution(tests)
     # Since tests are completed with expected output, call graderI
     graderI(tests, flags=flags)
+
