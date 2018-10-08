@@ -32,6 +32,7 @@
 import os
 import sys
 import json
+import sandboxio
 
 from feedbackC import  Feedback, subnlbybr
 
@@ -624,10 +625,9 @@ def graderI(tests, flags="-Wall -ansi"):
         
         dico_reponse['success'] = testsuite.result()
        
-    #dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
+    dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
     
-    print(json.dumps(dico_reponse))
-    sys.exit()
+    return dico_reponse
 
 ####################################################################
 #       GRADER II : grade from a list of tests from solution       #
@@ -653,7 +653,8 @@ def graderII(tests, flags="-Wall -ansi"):
     # Generation of expected outputs using the solution inside the exercice
     generate_output_from_solution(tests)
     # Since tests are completed with expected output, call graderI
-    graderI(tests, flags=flags)
+    return graderI(tests, flags=flags)
+
 
 
 

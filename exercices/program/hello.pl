@@ -9,7 +9,7 @@ author=Nicolas Borie
 name=Premier programme en C
 title=Premier programme en C
 tag=program
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -36,18 +36,13 @@ code==
 #include <stdio.h>
 
 int main(int argc, char* argv[]){
-  /* votre code ici... */
+  return 0;
 }
-
 ==
 
-# LOAD IMPORTANT FILES FOR GRADING
-files=@/template/basic.c
-files=@/template/graderC.py
-
-grader==
-from graderC import graderI
-
-tests = [ ["simple éxécution", "","", "Hello World!\n"] ]
-graderI(tests)
+tests==
+[ ["simple éxécution", "","", "Hello World!\n"] ]
 ==
+
+
+
