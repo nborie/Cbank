@@ -6,7 +6,7 @@ author=Nicolas Borie
 name=Ordonner les appels de fonctions
 title=Ordonner les appels de fonctions
 tag=program
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -27,7 +27,7 @@ reconstituer l'histoire correctement.
 
 ==
 
-code==
+editor.code==
 #include <stdio.h>
 
 void display_1(void){
@@ -43,7 +43,7 @@ void display_3(void){
 }
 
 int main(int argc, char* argv[]){
-  /** votre code ici... **/
+  /* votre code ici... */
 }
 
 ==
@@ -75,9 +75,7 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-
-tests = [ ["simple éxécution", "", ""] ]
-graderII(tests)
+tests==
+[ ["simple éxécution", "", ""] ]
 ==
+
