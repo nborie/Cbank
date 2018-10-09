@@ -31,13 +31,15 @@ if __name__ == "__main__":
     
     # Here
     dic = get_context()
-    truc = get_answers() # {'answer':vqlue } pas que form_answer 
+    truc = get_answers() # {'answer':value } pas que form_answer 
     with open("basic.c","w") as basic:
-        basic.write(truc['answer'])
+        basic.write(truc["answer"])
+        # print(truc["answer"], file=sys.stderr)
+    basic.close()
 
     from graderC import graderI, graderII
     assert('tests' in dic), "Your exercice should defined tests inside a tests pl markup environement.%s %s"%(str(dic), str(dic['dic']))
-    dico_tests = eval( (dic['tests'][:-1]).replace('\n', '\\n') ) 
+    dico_tests = eval( dic['tests'][:-1] ) 
     if (len(dico_tests) == 0):
         print("Your exercice do not define any test ! You shoul add at least one test.", file=sys.stderr)
         sys.exit(1)
@@ -51,6 +53,8 @@ if __name__ == "__main__":
     else:
         dic = graderI(dico_tests)
     output(dic['success']*100, dic['feedback'], dic)
+
+
 
 
 

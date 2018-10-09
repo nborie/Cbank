@@ -33,8 +33,13 @@ type=sandbox
 builder=@/builder/none.py
 
 # interface exercice standard plbank
-form=@/python/form/editorform.html
+form=@/form/text_editor.html
+editor.language = c_cpp
+editor.fontsize = 16
 
 expectedoutput==
 NE SERT A RIEN SI TOUT VA BIEN...
 ==
+
+
+
