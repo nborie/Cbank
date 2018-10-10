@@ -6,7 +6,7 @@ author=Nicolas Borie
 name=Afficher le contenu d'un tableau
 title=Afficher le contenu d'un tableau
 tag=output|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 Écrire une fonction qui affiche le contenu d'un tableau C. Cette
@@ -18,7 +18,7 @@ puis les entiers séparé par une virgule et enfin un crochet fermant en
 fin de tableau.
 ==
 
-code==
+editor.code==
 #include ...
 
 void display_array(int* array, int nb_term){
@@ -52,9 +52,7 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderI
-
-tests = [["Exécution simple", "", "", "[6, 2, 3, 7, 7, 9, 2]\n"]]
-graderI(tests)
+tests==
+[["Exécution simple", "", "", "[6, 2, 3, 7, 7, 9, 2]\n"]]
 ==
+
