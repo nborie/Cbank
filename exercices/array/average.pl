@@ -3,23 +3,22 @@
 # Moyenne des éléments d'un tableaux
 
 author=Nicolas Borie
-name=Moyenne des éléments d'un tableaux
-title=Moyenne des éléments d'un tableaux
+title=Moyenne des éléments d'un tableau
 tag=array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 Écrire une fonction C **average_array** qui prend en argument un
-tableaux d'entiers sous la forme d'un pointeur et de sa taille et retourne un flotant qui est
-la moyenne des éléments contenus dans le tableaux. Par convention, la
-moyenne d'un tableau vide devra être zéro.
+tableaux d'entiers (pointeur vers la première case) et sa taille puis retourne 
+un flotant qui devra être la moyenne des éléments contenus dans le tableaux. 
+Par convention, la moyenne d'un tableau vide devra être zéro.
 
 
-
-Rappel: la moyenne est la somme des élements divisée par le nombre d'élements.
+Rappel: la moyenne est la somme de tous les élements divisée par le nombre 
+d'élements.
 ==
 
-code==
+editor.code==
 float average_array(...){
     /* Votre code ici */
 }
@@ -42,6 +41,7 @@ float average_array(int* tab, int size){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -61,19 +61,13 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Exécution simple", "1", ""],
-         ["Quelques éléments", "12 -3 52 0 41", ""],
-         ["Tableau vide", "", ""]]
+[["Exécution simple", "1", ""],
+ ["Quelques éléments", "12 -3 52 0 41", ""],
+ ["Tableau vide", "", ""],
+ ["Aléatoire", " ".join([str(random.randint(-100,100)) for i in range(random.randint(5,10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100,100)) for i in range(random.randint(5,10))]), ""]]
 
-for k in range(2):
-    chaine_tab_alea = ""
-    for i in range(random.randint(5, 10)):
-        chaine_tab_alea += (" " + str(random.randint(-100, 100)))
-    tests.append(["Aléatoire", chaine_tab_alea, ""])
-
-graderII(tests)
 ==
+
