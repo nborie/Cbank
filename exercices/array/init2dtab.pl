@@ -3,16 +3,15 @@
 # Initialisation d'un tableau à 2 dimensions
 
 author=Nicolas Borie
-name=Initialisation d'un tableau à 2 dimensions
 title=Initialisation d'un tableau à 2 dimensions
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une fonction *init_tab_2d* qui prend en paramètre un tableau de
-caractère à deux dimensions *tab* ainsi que deux entiers *n* et
-*m*. Le tableau comporte ainsi *n* lignes et *m* colonnes. Vous devrez
+Écrire une fonction **init_tab_2d** qui prend en paramètre un tableau de
+caractère à deux dimensions **tab** ainsi que deux entiers **n** et
+**m**. Le tableau comporte ainsi **n** lignes et **m** colonnes. Vous devrez
 initialiser ce tableau avec des lettres minuscules, en commançant par
 'a' et de manière croissante en ligne et en colonne. Quand on arrive
 au 'z', on boucle en revenant sur la lettre 'a'.
@@ -33,8 +32,7 @@ Voici un exemple du contenu de la variable *tab* pour 11 lignes et 19 colonnes.
 
 ==
 
-code==
-
+editor.code==
 ... init_tab_2d(char** tab, int n, int m){
   ...
 }
@@ -56,6 +54,7 @@ void init_tab_2d(char** tab, int n, int m){
 ==
 
 codeafter==
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -91,20 +90,13 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-import random
-
-tests = [["Basique", "1 1", ""],
-	 ["Vide", "0 0", ""],
-	 ["Ligne", "1 6", ""],
-	 ["Colonne", "7 1", ""],
-	 ["Grand", "19 31", ""]]
-
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 20)),
-				     str(random.randint(1, 40))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(1, 20)),
-				     str(random.randint(1, 40))]), ""])
-
-graderII(tests)
+tests==
+[["Basique", "1 1", ""],
+ ["Vide", "0 0", ""],
+ ["Ligne", "1 6", ""],
+ ["Colonne", "7 1", ""],
+ ["Grand", "19 31", ""],
+ ["Aléatoire", ' '.join([str(random.randint(1, 20)), str(random.randint(1, 40))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(1, 20)), str(random.randint(1, 40))]), ""]]
 ==
+

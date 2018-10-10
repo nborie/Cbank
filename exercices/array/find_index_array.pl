@@ -6,10 +6,10 @@ author=Nicolas Borie
 name=Trouver l'index d'un élément
 title=Trouver l'index d'un élément
 tag=array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
-Écrire une fonction C *find_index* qui prend en paramètre un tableau
+Écrire une fonction C **find_index** qui prend en paramètre un tableau
 d'entiers, le nombre d'éléments contenu dans le tableau ainsi qu'un
 entier recherché.
 
@@ -19,11 +19,12 @@ contienne l'élément recherché à cet index. Si la fonction ne trouve
 pas l'entier recherché dans le tableau, la fonction retournera -1.
 
 
-Pour information, le programme test recherchera le dernier entier
-parmis les précédants nombres qui lui ont été donnés en argument.
+Pour information, le programme qui lance les tests recherchera la position 
+la plus petite du  dernier entier qui lui a été donné en argument parmi les 
+précédants nombres qui lui ont été donné en argument.
 ==
 
-code==
+editor.code==
 ... find_index(...){
     /* Votre code ici */
 }
@@ -45,6 +46,7 @@ int find_index(int* tab, int size, int e){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,19 +67,18 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Exécution simple", "0 1 2 3 4 5 6 5", ""],
-         ["Quelques éléments", "12 -3 52 0 41 52", ""],
-         ["Tableau vide", "0 1 2 3 4 5 6 -3", ""]]
-
-for k in range(5):
-    chaine_tab_alea = ""
-    for i in range(random.randint(10, 20)):
-        chaine_tab_alea += (" " + str(random.randint(-5, 5)))
-    tests.append(["Aléatoire", chaine_tab_alea, ""])
-
-graderII(tests)
+[["Exécution simple", "0 1 2 3 4 5 6 5", ""],
+ ["Quelques éléments", "12 -3 52 0 41 52", ""],
+ ["Tableau vide", "0 1 2 3 4 5 6 -3", ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 5)) for i in range(random.randint(10,20))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 5)) for i in range(random.randint(10,20))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 5)) for i in range(random.randint(10,20))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 5)) for i in range(random.randint(10,20))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 5)) for i in range(random.randint(10,20))]), ""]
+ ]
+ 
 ==
+
+
