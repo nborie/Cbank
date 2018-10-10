@@ -3,19 +3,19 @@
 # Somme des éléments positifs d'un tableau
 
 author=Nicolas Borie
-name=Somme des éléments positifs d'un tableau
 title=Somme des éléments positifs d'un tableau
 tag=array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
-Écrire une fonction C *sum_of_positives* qui prend en paramètre un
+Écrire une fonction C **sum_of_positives** qui prend en paramètre un
 tableau d'entiers ansi que son nombre d'éléments. La fonction
-retournera la somme des éléments positifs contenus dans le tableau.
+retournera la somme des éléments positifs contenus dans le tableau. Il ne faut 
+donc pas ajouter les négatifs s'il y en a.
 
 ==
 
-code==
+editor.code==
 ... sum_of_positives(...){
     /* Votre code ici */
 }
@@ -40,6 +40,7 @@ int sum_of_positives(int* tab, int taille){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -59,19 +60,17 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Exécution simple", "1", ""],
-         ["Quelques éléments", "12 -3 52 0 41", ""],
-         ["Tableau vide", "", ""]]
+[["Exécution simple", "1", ""],
+ ["Quelques éléments", "12 -3 52 0 41", ""],
+ ["Tableau vide", "", ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ]
 
-for k in range(3):
-    chaine_tab_alea = ""
-    for i in range(random.randint(5, 10)):
-        chaine_tab_alea += (" " + str(random.randint(-100, 100)))
-    tests.append(["Aléatoire", chaine_tab_alea, ""])
-
-graderII(tests)
 ==
+
