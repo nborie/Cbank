@@ -4,36 +4,37 @@
 # Ecrire une fonction qui renvoie le maximum dans un intervalle d'un tableau d'entiers
 
 author=Elise Hardy et DR
-title=Ecrire une fonction qui renvoie le maximum dans un intervalle d'un tableau d'entiers
+title=Maximum dans une sous-partie d'un tableau d'entiers
 tag=function
-template=/template/autograderC.pl
+template=/template/stdsandboxC.pl
 
 text==
 
-Ecrire une fonction *maxIntervalle* qui renvoie l'indice du  maximum dans un intervalle d'un tableau d'entiers *tab*
+Ecrire une fonction **max_section_array** qui renvoie l'indice du maximum 
+apparaissant dans une sous-fraction d'un tableau d'entiers **tab**
 
-Si les indices de l'intervalle ne sont pas corrects la fonction retourne **-1**,
-sinon elle retourne l'indice.
+Si les indices de l'intervalle (variable **a** et **b**) ne sont pas corrects 
+la fonction retourne **-1**, sinon elle retournera bien l'indice du maximum.
 
 ==
 
-code==
-int maxIntervalle(int *tab, int n, int a, int b, int *r)
+editor.code==
 /*
-* a borne inf 
-* b borne sup
-* n taille tableau 
-* r adresse de retour de l'indice 
-*/
-{
-#Votre code ici
+ * tab : pointer to the array
+ * a : included inferior index 
+ * b : included superior index
+ * n : number of elements in the array 
+ * r : pointer to the answer index
+ */
+int max_section_array(int *tab, int n, int a, int b, int *r){
+  /* Votre code ici... */
 } 
   
 
 ==
 
 solution==
-int maxIntervalle(int *tab, int taille, int a, int b, int *r){
+int max_section_array(int *tab, int taille, int a, int b, int *r){
 	if(a < 0 || b <0 || b<a || b > taille || a>taille || taille <= 0)
 		{
 		return -1;
@@ -41,12 +42,13 @@ int maxIntervalle(int *tab, int taille, int a, int b, int *r){
 	int max = tab[a];
 	int indice=a;
 	int i;
-	for(i = a; i< b; i++){
+	for(i = a; i<= b; i++){
 		if(max < tab[i]){
 			max = tab[i];
 			indice=i;
 		}
 	}
+	*r = indice;
 	return indice;
 }
 
@@ -54,6 +56,7 @@ int maxIntervalle(int *tab, int taille, int a, int b, int *r){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>    
 #include <time.h>
@@ -70,7 +73,6 @@ int* initialiseTableau(int n){
 int *randomtab(int n){
  int *t= calloc(n,sizeof(int));
  int i;
-srand(time(NULL)); 
   for(i=0;i<n;i++)
 	t[i]=rand();
 return t;
@@ -79,12 +81,13 @@ return t;
 int main(int argc, char* argv[]){
   int a = atoi(argv[1]);
   int b = atoi(argv[2]);
-  int n= atoi(argv[3]);
+  int n = atoi(argv[3]);
   int r;
   int *tab;
+  srand(a*b*n);
 	if (n<15) {tab=initialiseTableau(n);}
 	else { tab=randomtab(n);}
-  if ( maxIntervalle(tab,n,a,b,&r)==-1) 
+  if ( max_section_array(tab,n,a,b,&r)==-1) 
 	printf("indices incorrectes taille %d , a=%d, b=%d ", n, a, b);
   else 
 	printf("le max est égal à %d",tab[r]);
@@ -92,17 +95,18 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "2 5 10", ""],
-	["Indice négatif", "8 -4 16", ""],
-        ["Indice trop grand","35 77 20",""],
-        ["Bornes dans le mauvais sens", "16 4 20",""],
-	]
+tests==
 
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(2)]), ""])
+[["Basique", "2 5 10", ""],
+ ["Indice négatif", "8 -4 16", ""],
+ ["Indice trop grand","35 77 20",""],
+ ["Bornes dans le mauvais sens", "16 4 20",""],
+ ["Aléatoire", " ".join([str(random.randint(-2, 12)),str(random.randint(10, 22)),"20"]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-2, 12)),str(random.randint(10, 22)),"20"]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-2, 12)),str(random.randint(10, 22)),"20"]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-2, 12)),str(random.randint(10, 22)),"20"]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-2, 12)),str(random.randint(10, 22)),"20"]), ""]
+ ]
 
-graderII(tests)
 ==
+
