@@ -9,7 +9,7 @@ tag=program|variable
 
 type=direct
 
-build=@Cbank:exercices/program/code_generation.py
+builder=@/exercices/program/code_generation.py
 
 consistency==
 def check_consistency(dic):
@@ -29,7 +29,7 @@ form==
 </div>
 ==
 
-evaluator==
+grader==
 def evaluator(response, dic):
     if dic['vars_values'] is None:
         if response['answer'] == "Erreur":
@@ -45,3 +45,4 @@ def evaluator(response, dic):
     else:
         return False, "Mauvaise réponse"
 ==
+

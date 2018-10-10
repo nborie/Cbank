@@ -182,3 +182,4 @@ def build(dic):
     d['text'] = "Voici quelle instructions simples en langage C manipulant des variables entières \n\n\n\n" + double_with_tab("\t"+code) + "\n\nDonnez la valeur de la variable **a** en fin d'exécution de ce bout de code ou bien entrez **Erreur** en cas d'erreur durant l'exécution (division par zéro).\n"
     d['responses'] = values
     return d
+
