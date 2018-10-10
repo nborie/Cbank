@@ -1,17 +1,17 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
 author=Nicolas Borie
 
-title=Mettre au carré les éléments d'un tableau
+title=Élever au carré les éléments d'un tableau
 tag=array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 Écrire une fonction qui prend en argument un tableau d'entiers ainsi
-que ça taille puis élève aux carré tous les éléments contenus dans se
+que sa taille puis élève au carré tous les éléments contenus dans se
 tableau.
 ==
 
-code==
+editor.code==
 void apply_square_array(int* array, int nb_term){
   /* votre code ici... */
 }
@@ -60,19 +60,11 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderII
-import random
-
-tests = [["Exécution simple", "1", ""],
-         ["Quelques éléments", "12 -3 52 0 41", ""],
-         ["Tableau vide", "", ""]]
-
-for k in range(2):
-    chaine_tab_alea = ""
-    for i in range(random.randint(5, 10)):
-        chaine_tab_alea += (" " + str(random.randint(-100, 100)))
-    tests.append(["Aléatoire", chaine_tab_alea, ""])
-
-graderII(tests)
+tests==
+[["Exécution simple", "1", ""],
+ ["Quelques éléments", "12 -3 52 0 41", ""],
+ ["Tableau vide", "", ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(5, 10))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-100, 100)) for i in range(random.randint(10, 15))]), ""]]
 ==
+
