@@ -3,26 +3,31 @@
 # Initialisation d'un tableau d'entier
 
 author=DR
-title=Tableaux Initialisation 
-tag=boucle|array|function
-template=/template/autograderC
+title=Initialisation d'un tableau avec les carrés des entiers
+tag=array|function
+template=/template/stdsandboxC.pl
 
 text==
 
-Ecrire une fonction *newtab* qui prend en paramètre **n** et **tab** 
-l'adresse du tableau et retourne le tableau de n entiers et initialisé avec les valeurs des carrés de 1 à $%n^{2}%$.
+Ecrire une fonction **init_with_square** qui prend en paramètre **tab** l'adresse 
+d'un tableau de n cases ainsi qu'un entier **n** (la taille du tableau) puis 
+retourne l'adresse de ce même tableau de n entiers avec pour contenu les 
+valeurs des premiers carrés parfait $%1%$, $%4%$, $%9%$, 
+$%16%$ jusqu'à $%n^{2}%$.
     
-Si n est négatif ou nul la fonction retourne NULL (définie dans stdio.h).
+Si n est négatif ou nul la fonction retourne **NULL** (définie dans stdio.h).
 ==
-code==
-int* initialiseTableau(...) {
-  /** votre code ici... **/
+
+editor.code==
+int* init_with_square(...) {
+  /* votre code ici... */
 }
 
 ==
 
 
 codebefore==
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -30,8 +35,7 @@ codebefore==
 
 solution==
 
-#include <stdio.h>
-int* initialiseTableau(int n,int *tab){
+int* init_with_square(int* tab, int n){
 
 	if (n<1) return NULL;
 
@@ -62,7 +66,7 @@ void printTableau(int *tab, int n) {
 int main(int argc, char const *argv[]) {
 	int n = atoi(argv[1]);
  	int *tab  = malloc(sizeof(int)*n);
-	int *tcheck = initialiseTableau(n,tab);
+	int *tcheck = init_with_square(tab, n);
 	if (tcheck != NULL)
 		printTableau(tcheck, n);
 	else
@@ -72,17 +76,13 @@ int main(int argc, char const *argv[]) {
 ==
 
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "10", ""],
-		 ["Vide", "0", ""],
-		 ["Négatif", "-33", ""],
-		 ["Grand", "100", ""]] 
+[["Basique", "10", ""],
+ ["Vide", "0", ""],
+ ["Négatif", "-33", ""],
+ ["Grand", "100", ""],
+ ["Aléatoire", str(random.randint(1, 20)), ""],
+ ["Aléatoire", str(random.randint(20, 40)), ""]]
 
-tests.append(["Aléatoire", str(random.randint(20, 40)), ""])
-tests.append(["Aléatoire", str(random.randint(1, 20)), ""])
-
-graderII(tests)
 ==
