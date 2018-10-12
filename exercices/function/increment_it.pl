@@ -1,23 +1,19 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
 #
-# Ecrire une fonction qui calcule un polynome
 
 author=Dominique Revuz
-name= Its
 title= Incremente le 
 tag=function
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une function *incremente* qui prend l'adresse **p** d'un entier et un entier **inc** et incrémente l'entier pointé par **p**
-de la valeur **inc**.
+Écrire une function **incremente** qui prend l'adresse **p** d'un entier et un 
+entier **inc** et incrémente l'entier pointé par **p** de la valeur **inc**.
 La fonction retourne void.
 
 
-
-
-Programme de test:
+Le programme de test sera le suivant :
 
     #include <stdio.h>
     #include <stdlib.h>    
@@ -34,7 +30,7 @@ Programme de test:
 
 ==
 
-code==
+editor.code==
 ... incremente(...){
   ...
 }
@@ -49,6 +45,7 @@ void incremente(int *p,int inc)
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>    
     
@@ -63,14 +60,14 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "1 1", ""]]
+tests==
 
-for i in range(3):
-    tests.append(["Aléatoire", ' '.join([str(random.randint(10, 1000)) for i in range(2)]), ""])
+[["Basique", "1 1", ""],
+["Aléatoire", ' '.join([str(random.randint(10, 1000)) for i in range(2)]), ""],
+["Aléatoire", ' '.join([str(random.randint(10, 1000)) for i in range(2)]), ""],
+["Aléatoire", ' '.join([str(random.randint(10, 1000)) for i in range(2)]), ""],
+["Aléatoire", ' '.join([str(random.randint(10, 1000)) for i in range(2)]), ""]
+]
 
-graderII(tests)
 ==
+
