@@ -3,10 +3,9 @@
 # Un triangle avec des caractères ascii
 
 author=Nicolas Borie
-name=Un triangle avec des caractères ascii
 title=Un triangle avec des caractères ascii
 tag=function
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -30,7 +29,7 @@ Pour n = 5, on devra voir
     
 ==
 
-code==
+editor.code==
 #include <stdio.h>
     
 ... ascii_triangle(...){
@@ -39,6 +38,7 @@ code==
 ==
 
 solution==
+
 #include <stdio.h>
     
 void ascii_triangle(int n){
@@ -54,6 +54,7 @@ void ascii_triangle(int n){
 ==
 
 codeafter==
+
 #include <stdlib.h>
     
 int main(int argc, char* argv[]){
@@ -65,16 +66,13 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "3", ""],
-         ["Moyen", "6", ""],
-	 ["Vide", "0", ""]]
+tests==
 
-tests.append(["Aléatoire", str(random.randint(5, 10)), ""])
-tests.append(["Aléatoire", str(random.randint(11, 15)), ""])
+[["Basique", "3", ""],
+ ["Moyen", "6", ""],
+ ["Vide", "0", ""],
+ ["Aléatoire", str(random.randint(5, 10)), ""],
+ ["Aléatoire", str(random.randint(11, 15)), ""]]
     
-graderII(tests)
 ==
+
