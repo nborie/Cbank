@@ -5,7 +5,7 @@ introduction==
 Voici une série de petits jeux d'instructions arithmétique C
 
 ==
-concept==borie
+
 
 @ /exercices/program/random_instructions/set_instructions1.pl
 @ /exercices/program/random_instructions/set_instructions2.pl
@@ -15,4 +15,4 @@ concept==borie
 @ /exercices/program/random_instructions/set_instructions6.pl
 @ /exercices/program/random_instructions/set_instructions7.pl
 @ /exercices/program/random_instructions/set_instructions8.pl
-==
+
