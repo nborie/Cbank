@@ -3,20 +3,18 @@
 # Minimum de trois entiers
 
 author=Nicolas Borie
-name=Minimum de trois entiers
 title=Minimum de trois entiers
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une fonction *min_of_three* qui prend trois entiers en
+Écrire une fonction **min_of_three** qui prend trois entiers en
 paramètres et retourne le minimum de ces trois entiers.
 
 ==
 
-code==
-
+editor.code==
 ... min_of_three(...){
   ...
 }
@@ -38,6 +36,7 @@ int min_of_three(int a, int b, int c){
 ==
 
 codeafter==
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -48,24 +47,19 @@ int main(int argc, char* argv[]){
   int c = atoi(argv[3]);
 
   printf("Le minimum entre %d, %d et %d est : %d\n", a, b, c, min_of_three(a, b, c));
-  
   return 0;
 }
 ==
 
+tests==
 
-grader==
-from graderC import graderII
-import random
+[["Basique", "3 2 1", ""],
+ ["Égaux", "10 10 10", ""],
+ ["Négatif", "12 -6 3", ""],
+ ["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""]]
 
-tests = [["Basique", "3 2 1", ""],
-	 ["Égaux", "10 10 10", ""],
-	 ["Négatif", "12 -6 3", ""]]
-
-tests.append(["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-1000, 1000)) for i in range(3)]), ""])
-
-graderII(tests)
 ==
+
