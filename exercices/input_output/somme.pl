@@ -3,10 +3,9 @@
 # Afficher la somme de deux entiers saisis au clavier
 
 author=Nicolas Borie
-name=Somme de deux entiers données au clavier
 title=Somme de deux entiers données au clavier
 tag=input_output
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -23,7 +22,7 @@ quelque soit les entiers données par le testeur et pas seulement 12 et
     
 ==
 
-code==
+editor.code==
 #include ...
 
 int main(int argc, char* argv[]){
@@ -47,20 +46,15 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Simple test", "", "12 3\n"],
-	 ["Des négatifs", "", "-12 41\n"],
-	 ["La tête à toto", "", "0 0\n"],
-	 ["D'autres négatifs", "", "-421 -12623\n"]]
-tests.append(["Aléatoire", "", str(random.randint(-10,10))+" "+ 
-	                       str(random.randint(-10,10))+"\n"])
-tests.append(["Aléatoire", "", str(random.randint(-100,100))+" "+ 
-	                       str(random.randint(-100,100))+"\n"])
-tests.append(["Aléatoire", "", str(random.randint(-1000,1000))+" "+ 
-	                       str(random.randint(-1000,1000))+"\n"])
-
-graderII(tests)
+[["Simple test", "", "12 3\n"],
+ ["Des négatifs", "", "-12 41\n"],
+ ["La tête à toto", "", "0 0\n"],
+ ["D'autres négatifs", "", "-421 -12623\n"],
+ ["Aléatoire", "", str(random.randint(-10,10))+" "+str(random.randint(-10,10))+"\n"],
+ ["Aléatoire", "", str(random.randint(-10,10))+" "+str(random.randint(-10,10))+"\n"],
+ ["Aléatoire", "", str(random.randint(-10,10))+" "+str(random.randint(-10,10))+"\n"]]
+ 
 ==
+
