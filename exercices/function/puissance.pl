@@ -3,22 +3,22 @@
 # Ecrire une fonction qui calcule la puissance d'un nombre
 
 author=Elise Hardy
-name=Écrire une fonction qui calcule la puissance d'un nombre
 title=Écrire une fonction qui calcule la puissance d'un nombre
 tag=function
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une function *puissance* qui prend en argument 2 entiers *n* et 
-*p* et qui retourne n^p.
- p doit etre positif sinon la fonction retourne 0.
+Écrire une function **puissance** qui prend en argument 2 entiers $%n%$ et 
+$%p%$ et qui retourne l'entier $%n^p%$.
+$%p%$ doit etre positif sinon la fonction retourne 0.
 
 ==
 
-code==
-  
-
+editor.code==
+... puissance (...){
+  /* Votre code ici... */
+}
 ==
 
 solution==
@@ -37,6 +37,7 @@ int puissance (int n, int p){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>    
     
@@ -49,15 +50,14 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "2 5", ""]
-	["Impossible", "8 -4", ""]]
+tests==
 
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(2)]), ""])
-tests.append(["Aléatoire", " ".join([str(random.randint(-10, 10)) for i in range(2)]), ""])
+[["Basique", "2 5", ""],
+ ["Impossible", "8 -4", ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 10)) for i in range(2)]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 10)) for i in range(2)]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 10)) for i in range(2)]), ""],
+ ["Aléatoire", " ".join([str(random.randint(-5, 10)) for i in range(2)]), ""]]
 
-graderII(tests)
 ==
+
