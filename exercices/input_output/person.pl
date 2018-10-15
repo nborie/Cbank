@@ -3,10 +3,9 @@
 # Récupérer une personne (prénom, nom, age) au clavier
 
 author=Nicolas Borie
-name=Données d'une personne entrée au clavier
 title=Données d'une personne entrée au clavier
 tag=input_output
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -18,7 +17,7 @@ ans. <prénom>, <nom> et <age> devront être correctement substitué.
     
 ==
 
-code==
+editor.code==
 #include ...
 
 int main(int argc, char* argv[]){
@@ -59,14 +58,12 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "", "Martin\nTartenpion\n99\n"],
-         ["Vieux machin", "", "Maitre\nYoda\n982\n"],
-         ["Age mental", "", "Nicolas\nBorie\n12\n"],
-         ["Jeune pousse", "", "Tom\nPouce\n28\n"]]
+[["Basique", "", "Martin\nTartenpion\n99\n"],
+ ["Vieux machin", "", "Maitre\nYoda\n982\n"],
+ ["Age mental", "", "Nicolas\nBorie\n12\n"],
+ ["Jeune pousse", "", "Tom\nPouce\n28\n"]]
 
-graderII(tests)
 ==
+
