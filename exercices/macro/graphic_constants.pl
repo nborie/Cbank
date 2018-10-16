@@ -3,13 +3,12 @@
 # Déclaration de constantes pour une interface graphique
 
 author=Nicolas Borie
-name=Déclaration de constantes pour une interface graphique
 title=Déclaration de constantes pour une interface graphique
 tag=macro
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
-Définir quatre constantes préprocesseurs pour un interface
+Définir quatre constantes préprocesseurs pour une interface
 graphique. Les deux premières constantes donneront la taille de la
 fenêtre : *WINDOW_SIZE_X* pour la largeur qui devra être de 800 et
 *WINDOW_SIZE_Y* pour la hauteur qui devra valoir 600.
@@ -20,12 +19,13 @@ qui aura pour valeur quelque chose s'évaluant à faux dans un test
 *if*. Cela désactivera le mode débogage par défault.
 ==
 
-code==
+editor.code==
 #...
 
 ==
 
 solution==
+
 #define WINDOW_SIZE_X 800
 #define WINDOW_SIZE_Y 600
 #define NB_BUTTON 12
@@ -52,9 +52,7 @@ return 0;
 
 ==
 
-grader==
-from graderC import graderII
- 
-tests = [["Initialisation des constantes", "",""]] 
-graderII(tests)
+tests==
+[["Initialisation des constantes", "",""]] 
 ==
+
