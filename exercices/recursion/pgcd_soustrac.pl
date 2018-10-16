@@ -3,10 +3,9 @@
 # PGCD avec soustractions
 
 author=Nicolas Borie
-name=PGCD avec soustractions
 title=PGCD avec soustractions
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -41,7 +40,7 @@ $% a %$ et $% b %$ sont tous les deux pairs.
     * au PGCD de $% a %$ et $% b - a %$ si $% b > a %$.
 ==
 
-code==
+editor.code==
 int pgcd(int a, int b){
   ...
 }
@@ -68,6 +67,7 @@ int pgcd(int a, int b){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -83,18 +83,15 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "3 6", ""],
-	 ["Premier entre eux", "120 11", ""]]
-    
-for i in range(5):
-    d = randint(1, 40)
-    a = d*randint(1, 10000)
-    b = d*randint(1, 10000)
-    tests.append(["Aléatoire", ' '.join([str(a), str(b)]), ""])
+[["Basique", "3 6", ""],
+ ["Premier entre eux", "120 11", ""],
+ ["Aléatoire", ' '.join([str(d*a)+" "+str(d*b) for (d,a,b) in [(random.randint(1, 40), random.randint(1, 10000), random.randint(1, 10000))]] ), ""],
+ ["Aléatoire", ' '.join([str(d*a)+" "+str(d*b) for (d,a,b) in [(random.randint(1, 40), random.randint(1, 10000), random.randint(1, 10000))]] ), ""],
+ ["Aléatoire", ' '.join([str(d*a)+" "+str(d*b) for (d,a,b) in [(random.randint(1, 40), random.randint(1, 10000), random.randint(1, 10000))]] ), ""],
+ ["Aléatoire", ' '.join([str(d*a)+" "+str(d*b) for (d,a,b) in [(random.randint(1, 40), random.randint(1, 10000), random.randint(1, 10000))]] ), ""],
+ ["Aléatoire", ' '.join([str(d*a)+" "+str(d*b) for (d,a,b) in [(random.randint(1, 40), random.randint(1, 10000), random.randint(1, 10000))]] ), ""]]
 
-graderII(tests)
 ==
+
