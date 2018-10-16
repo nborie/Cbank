@@ -3,10 +3,9 @@
 # Divisibilité par 7
 
 author=Nicolas Borie
-name=Divisibilité par 7
 title=Divisibilité par 7
 tag=function|recursion|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -50,7 +49,7 @@ Faites confiances aux recommandations suivantes :
   utilise le théorème énoncé plus haut.			 
 ==
 
-code==
+editor.code==
 int divisible_by_7(int n){
   ...
 }
@@ -84,18 +83,18 @@ int main(int argc, char* argv[]){
 
 ==
 
+tests==
 
-grader==
-from graderC import graderII
-from random import randint
-
-tests = [["Basique", "0", ""],
-	 ["Petit", "7", ""],
-         ["Pas bien grand", "6", ""]]
-
-for j in range(6):
-    tests.append(["Aléatoire", str(randint(-2000000000, 2000000000)), ""])
-tests.append(["Aléatoire", str(7*randint(-200000000, 200000000)), ""])
+[["Basique", "0", ""],
+ ["Petit", "7", ""],
+ ["Pas bien grand", "6", ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(-2000000000, 2000000000)), ""],
+ ["Aléatoire", str(7*random.randint(-200000000, 200000000)), ""]]
 			 
-graderII(tests)
 ==
+
