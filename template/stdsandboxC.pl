@@ -37,8 +37,8 @@ form=@/form/text_editor.html
 editor.language = c_cpp
 editor.fontsize = 16
 
-expectedoutput==
-NE SERT A RIEN SI TOUT VA BIEN...
-==
+#expectedoutput==
+#NE SERT A RIEN SI TOUT VA BIEN...
+#==
 
 

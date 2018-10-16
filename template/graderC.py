@@ -444,7 +444,7 @@ class Play_tests():
 #                     Generate output from solution                #
 ####################################################################
 
-def generate_output_from_solution(tests):
+def generate_output_from_solution(tests, dic):
     """
     This function take in arguments a list of test without expected
     output. Using a solution provided by the teacher inside the
@@ -464,10 +464,10 @@ def generate_output_from_solution(tests):
     """
     # Prepare the source from the teacher
     src_file_solution = open("src_teacher.c", "w")
-    src_file_solution.write(exercice['solution'])
+    src_file_solution.write(dic['solution'])
     src_file_solution.close()
 
-    compilation = PreActionsAndCompile("src_teacher.c", exercice)
+    compilation = PreActionsAndCompile("src_teacher.c", dic)
     compilation.compile()
     teacher_exec = compilation.exec_path()
     
@@ -501,7 +501,7 @@ def generate_output_from_solution(tests):
 # - the expected output                                            #
 ####################################################################
 
-def graderI(tests, flags="-Wall -ansi"):
+def graderI(tests, dic, flags="-Wall -ansi"):
     """
     This grader takes in arguments a dictionnary of tests nammed `tests`.
     Each record must be of this format :
@@ -545,7 +545,7 @@ def graderI(tests, flags="-Wall -ansi"):
 #                                                                  #
 ####################################################################
     
-def graderII(tests, flags="-Wall -ansi"):
+def graderII(tests, dic, flags="-Wall -ansi"):
     """
     This grader takes in arguments a dictionnary of tests nammed `tests`.
     Each record must be of this format :
@@ -554,6 +554,7 @@ def graderII(tests, flags="-Wall -ansi"):
      stdin of test]
     """
     # Generation of expected outputs using the solution inside the exercice
-    generate_output_from_solution(tests)
+    generate_output_from_solution(tests, dic)
     # Since tests are completed with expected output, call graderI
-    return graderI(tests, flags=flags)
+    return graderI(tests, dic, flags=flags)
+

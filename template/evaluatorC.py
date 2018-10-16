@@ -3,6 +3,8 @@
 
 import sys, json, jsonpickle, time
 
+import random
+
 from sandboxio import output, get_context, get_answers
 
 missing_evaluator_stderr = """\
@@ -39,7 +41,7 @@ if __name__ == "__main__":
 
     from graderC import graderI, graderII
     assert('tests' in dic), "Your exercice should defined tests inside a tests pl markup environement.%s %s"%(str(dic), str(dic['dic']))
-    dico_tests = eval( dic['tests'][:-1] ) 
+    dico_tests = eval( dic['tests'] )
     if (len(dico_tests) == 0):
         print("Your exercice do not define any test ! You shoul add at least one test.", file=sys.stderr)
         sys.exit(1)
@@ -49,10 +51,11 @@ if __name__ == "__main__":
 
     if len(dico_tests[0]) == 3:
         assert('solution' in dic), "If your tests do not provide excepted outputs, please provide a teacher solution."
-        dic = graderII(dico_tests)
+        dic = graderII(dico_tests, dic)
     else:
-        dic = graderI(dico_tests)
+        dic = graderI(dico_tests, dic)
     output(dic['success']*100, dic['feedback'], dic)
+
 
 
 
