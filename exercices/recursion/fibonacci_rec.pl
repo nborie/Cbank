@@ -3,10 +3,9 @@
 # Fibonacci recursif naif
 
 author=Nicolas Borie
-name=Fibonacci récursif très naïf
 title=Fibonacci récursif très naïf
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -34,7 +33,7 @@ Complètez la fonction suivante de manière à ce qu'elle retourne le
 $% n^{ième} %$ nombre de Fibonacci.
 ==
 
-code==
+editor.code==
 int fibonacci(int n){
   ...
 }
@@ -49,6 +48,7 @@ int fibonacci(int n){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -63,22 +63,15 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "0", ""],
-	 ["Premier", "1", ""],
-         ["Second", "2", ""]]
+[["Basique", "0", ""],
+ ["Premier", "1", ""],
+ ["Second", "2", ""],
+ ["Aléatoire", str(random.randint(3,6)), ""],
+ ["Aléatoire", str(random.randint(6, 9)), ""],
+ ["Aléatoire", str(random.randint(9, 12)), ""],
+ ["Aléatoire", str(random.randint(12, 15)), ""]]
 
-L = []
-while (len(L) < 3):
-    n = randint(3, 10)
-    if n not in L:
-        L.append(n)
-
-for e in L:
-    tests.append(["Aléatoire", str(e), ""])
-
-graderII(tests)
 ==
+
