@@ -3,14 +3,13 @@
 # Égrener des nombres récursivements
 
 author=Nicolas Borie
-name=Égrener des nombres récursivements
 title=Égrener des nombres récursivements
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une fonction récurssive *bas_haut* qui prend en argument un
+Écrire une fonction récurssive **bas_haut** qui prend en argument un
 entier *n* et qui affiche sur une seule ligne sans retour à la ligne
 tout les entiers de *n* à *1* puis remonte à *n*. Chaque monbre sera
 séparé par un espace.
@@ -21,7 +20,7 @@ Pour *n* qui vaut *7*, cela donnera
     
 ==
 
-code==
+editor.code==
 #include <stdio.h>
 
 ... bas_haut(...){
@@ -30,6 +29,7 @@ code==
 ==
 
 solution==
+
 #include <stdio.h>
     
 void bas_haut(int n){
@@ -47,6 +47,7 @@ void bas_haut(int n){
 ==
     
 codeafter==
+
 #include <stdlib.h>    
     
 int main(int argc, char* argv[]){
@@ -58,16 +59,13 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "1", ""], 
-	 ["Moyen", "5", ""],
-	 ["Erreur", "-2", ""]]
+tests==
 
-tests.append(["Aléatoire", str(random.randint(6, 15)), ""])
-tests.append(["Aléatoire", str(random.randint(6, 15)), ""])
+[["Basique", "1", ""], 
+ ["Moyen", "5", ""],
+ ["Erreur", "-2", ""],
+ ["Aléatoire", str(random.randint(6, 15)), ""],
+ ["Aléatoire", str(random.randint(6, 15)), ""]]
 
-graderII(tests)
 ==
+
