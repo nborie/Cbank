@@ -6,23 +6,23 @@ author=Nicolas Borie
 name=Exponentiation rapide en récursif
 title=Exponentiation rapide en récursif
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une fonction récursive *exp_rap* qui prend en paramètre deux
-entiers *a* et *n* puis retourne *a^n*. Utilisez l'algorithme de
+Écrire une fonction récursive **exp_rap** qui prend en paramètre deux
+entiers $%a%$ et $%n%$ puis retourne $%a^n%$. Utilisez l'algorithme de
 l'exponentiation rapide.
 
- * Pour *n = 0*, on a *a^0 = 1* (on considéra que *O^0 = 1* comme tout bon
+ * Pour $%n = 0%$, on a $%a^0 = 1%$ (on considéra que $%0^0 = 1%$ comme tout bon
 algébriste).
 
- * Si *n* est un entier pair *n = 2q*, il suffira de mettre au carré le retour de l'appel récursif calculant *a^q*.
+ * Si $%n%$ est un entier pair $%n = 2q%$, il suffira de mettre au carré le retour de l'appel récursif calculant $%a^q%$.
  
- * Si *n* est entier impair *n = 2q + 1*, il faudra mettre au carré de retour de l'appel récurif donnant *a^q* mais aussi le multiplié une dernière fois par *a*.
+ * Si $%n%$ est entier impair $%n = 2q + 1%$, il faudra mettre au carré de retour de l'appel récurif donnant $%a^q%$ mais aussi le multiplié une dernière fois par $%a%$.
 ==
 
-code==
+editor.code==
 ... exp_rap(...){
 ...
 }
@@ -57,22 +57,15 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
-    
-tests = [["Basique", "1 1", ""], 
-	 ["Moyen", "12342312 0", ""],
-	 ["Négatif", "-2 5", ""]]
+tests==
 
-tests.append(["Aléatoire", ' '.join([str(random.randint(-5, 5)),
-				     str(random.randint(1, 5))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-6, 6)),
-				     str(random.randint(1, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-7, 7)),
-				     str(random.randint(1, 7))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(-8, 8)),
-				     str(random.randint(1, 8))]), ""])
+[["Basique", "1 1", ""], 
+ ["Moyen", "12342312 0", ""],
+ ["Négatif", "-2 5", ""],
+ ["Aléatoire", ' '.join([str(random.randint(-5, 5)), str(random.randint(1, 5))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-6, 6)), str(random.randint(1, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-7, 7)), str(random.randint(1, 7))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-8, 8)), str(random.randint(1, 8))]), ""]]
 
-graderII(tests)
 ==
+
