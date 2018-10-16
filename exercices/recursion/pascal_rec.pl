@@ -3,10 +3,9 @@
 # Binomiaux récursifs
 
 author=Nicolas Borie
-name=Coefficients binomiaux en récursif
 title=Coefficients binomiaux en récursif
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -44,7 +43,7 @@ coefficients binomiaux à l'aide de cette méthode récurive brutale (On
 ne ferait pas comme cela avec plus de connaissance en programmation).
 ==
 
-code==
+editor.code==
 int binomial(int n, int k){
   ...
 }
@@ -71,26 +70,17 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "0 0", ""], 
-	 ["Aux bords", "132 132", ""],
-	 ["L'autre bord", "4231 0", ""]]
+[["Basique", "0 0", ""], 
+ ["Aux bords", "132 132", ""],
+ ["L'autre bord", "4231 0", ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(7, 12)), str(random.randint(0, 6))]), ""]]
 
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(7, 12)),
-				     str(random.randint(0, 6))]), ""])
-
-graderII(tests)
 ==
+
