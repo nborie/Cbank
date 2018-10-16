@@ -1,9 +1,0 @@
-git commit -m "version exam"   exercices/function/incremente.pl
-git commit -m "version exam"   exercices/function/param.pl
-git commit -m "version exam"   exercices/string/in.pl
-git commit -m "version exam"   exercices/string/countvoyelle.pl
-git commit -m "version exam"   exercices/structure/point2d.pl
-git commit -m "version exam"   exercices/structure/alloccouleur.pl
-git commit -m "version exam"   exercices/array/average.pl
-git commit -m "version exam"   exercices/function/pgcdbibi.pl
-
