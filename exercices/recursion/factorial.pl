@@ -3,10 +3,9 @@
 # Factorielle d'un entier positif
 
 author=Nicolas Borie
-name=Factorielle d'un entier positif
 title=Factorielle d'un entier positif
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -29,7 +28,7 @@ factorielle de $% n %$ en utilisant la valeur de factorielle de $% n-1
 %$.    
 ==
 
-code==
+editor.code==
 int factorial(int n){
   ...
 }
@@ -44,6 +43,7 @@ int factorial(int n){
 ==
     
 codeafter==
+
 #include <stdlib.h>
 #include <stdio.h>    
     
@@ -55,22 +55,16 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "0", ""], 
-	 ["Petit", "1", ""],
-	 ["Moyen", "5", ""]]
+[["Basique", "0", ""], 
+ ["Petit", "1", ""],
+ ["Moyen", "5", ""],
+ ["Aléatoire", str(random.randint(2, 4)), ""],
+ ["Aléatoire", str(random.randint(6, 8)), ""],
+ ["Aléatoire", str(random.randint(9, 11)), ""],
+ ["Aléatoire", str(random.randint(11, 15)), ""],
+ ["Aléatoire", str(random.randint(16, 20)), ""]]
 
-L = []
-while(len(L) < 4):
-    n = random.randint(6, 12)
-    if n not in L:
-        L.append(n)
-
-for n in L:
-    tests.append(["Aléatoire", str(n), ""])
-
-graderII(tests)
 ==
+
