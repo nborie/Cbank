@@ -3,10 +3,9 @@
 # Fonction d'Ackermann
 
 author=Nicolas Borie
-name=Fonction d'Ackermann
 title=Fonction d'Ackermann
 tag=function|recursion
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -27,7 +26,7 @@ Complèter la fonction ci-dessus de manière à ce qu'elle retourne la
 valeur d'akermann associée aux deux paramètres *m* et *n*.
 ==
 
-code==
+editor.code==
 int ackermann(int m, int n){
   ...
 }
@@ -46,6 +45,7 @@ int ackermann(int m, int n){
 ==
     
 codeafter==
+
 #include <stdlib.h>
 #include <stdio.h>    
     
@@ -58,22 +58,15 @@ int main(int argc, char* argv[]){
 ==
 
     
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "0 0", ""], 
-	 ["Moyen", "2 2", ""],
-	 ["Gros", "3 5", ""]]
+[["Basique", "0 0", ""], 
+ ["Moyen", "2 2", ""],
+ ["Gros", "3 5", ""],
+ ["Aléatoire", ' '.join([str(random.randint(0, 1)), str(random.randint(0, 100))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(0, 2)), str(random.randint(0, 20))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(0, 3)), str(random.randint(0, 4))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(0, 3)), str(random.randint(0, 4))]), ""]]
 
-tests.append(["Aléatoire", ' '.join([str(random.randint(0, 1)),
-				     str(random.randint(0, 100))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(0, 2)),
-				     str(random.randint(0, 20))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(0, 3)),
-				     str(random.randint(0, 4))]), ""])
-tests.append(["Aléatoire", ' '.join([str(random.randint(0, 3)),
-				     str(random.randint(0, 4))]), ""])
-
-graderII(tests)
 ==
+
