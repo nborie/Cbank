@@ -3,15 +3,14 @@
 # Fonction qui affiche la date de compilation
 
 author=Nicolas Borie
-name=Fonction qui affiche la date de compilation
 title=Fonction qui affiche la date de compilation
 tag=macro|function
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Le compilateur *gcc* possède quelques macro prédéfinie et
-adaptative. Parmi ces dernières, il y a la macro *__date__*. Cette
+Le compilateur **gcc** possède quelques macros prédéfinies et
+adaptatives. Parmi ces dernières, il y a la macro **\_\_DATE\_\_**. Cette
 dernière est substituée lors de la préproccession par une chaîne de
 caractère donnant la date de compilation du programme.
 
@@ -23,11 +22,11 @@ appel la phrase suivante :
 
     
 Il faudra remplacer XXXXX par date de compilation du programme et ne
-pas oublier le retour à la ligne en fin de phrase. 
+pas oublier le point ainsi que le retour à la ligne en fin de phrase. 
 
 ==
 
-code==
+editor.code==
 
 ... print_compilation_date(...){
   ...
@@ -36,6 +35,7 @@ code==
 ==
 
 solution==
+
 void print_compilation_date(){
   printf("Le programme à été compilé le %s.\n", __DATE__);
 }
@@ -57,9 +57,9 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
+tests==
 
-tests = [["Exécution simple", "",""]]
-graderII(tests)
+[["Exécution simple", "",""]]
+
 ==
+
