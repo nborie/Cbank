@@ -3,10 +3,9 @@
 # Macro à paramètre avec un dièse sur argument
 
 author=Nicolas Borie
-name=Macro chaine depuis argument
 title=Macro chaine depuis argument 
 tag=macro
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 Écrire une macro EVAL prenant un seul paramètre qui sera une
@@ -23,7 +22,7 @@ macro prend un paramètre a, on peut obtenir une chaine de caractère C
 à partir de a en utilisant #a dans le corps de la macro.
 ==
 
-code==
+editor.code==
 #define EVAL....
 
 ==
@@ -54,9 +53,7 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
- 
-tests = [["quelques expressions", "",""]] 
-graderII(tests)
+tests==
+[["quelques expressions", "",""]] 
 ==
+
