@@ -3,10 +3,9 @@
 # Problème du sac à dos
 
 author=Nicolas Borie
-name=Problème du sac à dos
 title=Problème du sac à dos
 tag=function|recursion|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -83,7 +82,7 @@ Idée de l'algorithme :
   des deux options est soluble.
 ==
 
-code==
+editor.code==
 int knapsack(int capacity, int* objects, int index, int nb_object){
   ...
 }
@@ -104,6 +103,7 @@ int knapsack(int capacity, int* objects, int index, int nb_object){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -139,20 +139,16 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "5 1 3", ""],
-	 ["Puissances de 2", "31 1 2 4 8 16", ""],
-	 ["Scores au rugby", "12 3 3 3 3 5 5 7 ", ""]]
+[["Basique", "5 1 3", ""],
+ ["Puissances de 2", "31 1 2 4 8 16", ""],
+ ["Scores au rugby", "12 3 3 3 3 5 5 7 ", ""],
+ ["Aléatoire", " ".join([str(random.randint(50, 100))]+[str(random.randint(1, 20)) for i in range(5+random.randint(1, 5))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(50, 100))]+[str(random.randint(1, 20)) for i in range(5+random.randint(1, 5))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(50, 100))]+[str(random.randint(1, 20)) for i in range(5+random.randint(1, 5))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(50, 100))]+[str(random.randint(1, 20)) for i in range(5+random.randint(1, 5))]), ""],
+ ["Aléatoire", " ".join([str(random.randint(50, 100))]+[str(random.randint(1, 20)) for i in range(5+random.randint(1, 5))]), ""]]
 
-L = []
-for i in range(6):
-   L.append(randint(1, 20))
-L = [sum(L)] + L
-tests.append(["Aléatoire", ' '.join([str(elem) for elem in L]), ""])
-
-
-graderII(tests)
 ==
+
