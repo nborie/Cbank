@@ -3,10 +3,9 @@
 # Macro à paramètre pour calculer un carré
 
 author=Nicolas Borie
-name=Macro pour calculer un carré
 title=Macro pour calculer un carré
 tag=macro
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 Écrire une macro **SQUARE** qui prend en argument un seul paramètre
@@ -16,7 +15,7 @@ sera toujours une expression C qui s'évalue dans un type numérique.
 
 ==
 
-code==
+editor.code==
 #define SQUARE....
 
 ==
@@ -43,9 +42,7 @@ int main(int argc, char* argv[]){
 
 ==
 
-grader==
-from graderC import graderII
- 
-tests = [["expressions classiques", "",""]] 
-graderII(tests)
+tests==
+[["expressions classiques", "",""]] 
 ==
+
