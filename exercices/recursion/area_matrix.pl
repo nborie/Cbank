@@ -3,10 +3,9 @@
 # Zone contigue dans une matrice
 
 author=Nicolas Borie
-name=Zone contiguë dans une matrice
 title=Zone contiguë dans une matrice
 tag=function|recursion|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -80,7 +79,7 @@ Attention, les cases en diagonales ne sont pas voisines !
     
 ==
 
-code==
+editor.code==
 /* Retourne la taille de la zone contigue de même couleur */
 /* issue de la case (x, y). */
 int size_aera_color(int** mat, int size_mat, int x, int y){
@@ -97,6 +96,7 @@ int size_aera_color_rec(int** mat, int size_mat, int x, int y, int color){
 ==
 
 solution==
+
 int size_aera_color(int** mat, int size_mat, int x, int y){
   return size_aera_color_rec(mat, size_mat, x, y, mat[x][y]);
 }
@@ -117,15 +117,19 @@ int size_aera_color_rec(int** mat, int size_mat, int x, int y, int color){
     total += size_aera_color_rec(mat, size_mat, x, y+1, color);
   return total;
 }
+
 ==
 
 
 codebefore==
+
 int size_aera_color(int** mat, int size_mat, int x, int y);
 int size_aera_color_rec(int** mat, int size_mat, int x, int y, int color);
+
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -173,24 +177,15 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "1 0 0", "1"],
-	 ["Mini", "2 1 1", "2 1\n 1 1"],
-         ["PLein", "5 4 1", "2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2"]]
+[["Basique", "1 0 0", "1"],
+ ["Mini", "2 1 1", "2 1\n 1 1"],
+ ["PLein", "5 4 1", "2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2\n 2 2 2 2 2"],
+ ["Trous", "5 2 2", "1 2 2 2 1\n 2 2 2 2 2\n 2 1 2 1 2\n 2 2 2 2 2\n 2 1 2 1 2"],
+ ["Carré", "5 3 0", "3 3 3 3 3\n 3 1 2 5 3\n 3 1 3 4 3\n 3 2 5 4 3\n 3 3 3 3 3"],
+ ["Damier", "5 4 1", "2 1 2 1 2\n 1 2 1 2 1\n 2 1 2 1 2\n 1 2 1 2 1\n 2 1 2 1 2"],
+ ["taille 6", "6 0 3", "2 3 2 4 2 4\n 2 4 4 4 2 5\n 2 4 2 3 2 1\n 3 3 3 2 2 5\n 1 2 4 3 4 3"]]
 
-for j in range(4):
-    taille = randint(5, 10)
-    lignes = []
-    for line in range(taille):
-        lignes.append(' '.join([str(randint(1,randint(2, 3))) for i in range(taille)]))
-    mat = '\n'.join(lignes)
-    x = randint(0, taille-1)
-    y = randint(0, taille-1)
-    arguments = ' '.join([str(taille), str(x), str(y)])
-    tests.append(["Aléatoire", arguments, mat])
-
-graderII(tests)
 ==
+
