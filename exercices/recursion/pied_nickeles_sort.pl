@@ -3,10 +3,9 @@
 # Tri des pieds nickelés
 
 author=Nicolas Borie
-name=Tri des pieds nickelés
 title=Tri des pieds nickelés
 tag=function|recursion|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -83,13 +82,14 @@ tiers. Le tiers du milieu doit toujours être le plus grand lorsque le
 nombre total d'éléments à trier n'est pas un multiple de $% 3 %$.
 ==
 
-code==
+editor.code==
 void pieds_sort(int* array, int begin_index, int end_index){
   ...
 }
 ==
 
 solution==
+
 void pieds_sort(int* array, int deb, int fin){
 int tmp, tier1, tier2;
 
@@ -113,6 +113,7 @@ int tmp, tier1, tier2;
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -143,17 +144,14 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "1", ""],
-	 ["Petit", "3 2 1", ""],
-	 ["Moyen", "8 1 5 2 7 3 6 9 4 0", ""]]
+[["Basique", "1", ""],
+ ["Petit", "3 2 1", ""],
+ ["Moyen", "8 1 5 2 7 3 6 9 4 0", ""],
+ ["Aléatoire", ' '.join([str(random.randint(1, 30)) for i in range(random.randint(15,30))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(1, 10)) for i in range(random.randint(15,30))]), ""],
+ ["Aléatoire", ' '.join([str(random.randint(-100, 100)) for i in range(random.randint(30,40))]), ""]]
 
-tests.append(["Aléatoire", ' '.join([str(randint(1, 30)) for i in range(randint(15,30))]), ""])
-tests.append(["Aléatoire", ' '.join([str(randint(1, 10)) for i in range(randint(15,30))]), ""])
-tests.append(["Aléatoire", ' '.join([str(randint(-100, 100)) for i in range(randint(30,40))]), ""])
-
-graderII(tests)
 ==
+
