@@ -3,10 +3,9 @@
 # Somme des chiffres d'un nombre
 
 author=Nicolas Borie
-name=Somme des chiffres d'un nombre
 title=Somme des chiffres d'un nombre
 tag=function|recursion|array
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
@@ -19,13 +18,13 @@ suffit de calculer la somme des chiffres donnant le nombre de dizaines
 dans ce nombre (appel récursif) et ensuite d'ajouter le nombre
 d'unité.
 
+    somme total         = somme du nombre des dizaines + chiffre des unités
     sum_number(726352)  =     sum_number(72635)        +        2   
     sum_number(72635)   =     sum_number(7263)         +        5   
     sum_number(7263)    =     sum_number(726)          +        3
     sum_number(726)     =     sum_number(72)           +        6
     sum_number(72)      =     sum_number(7)            +        2
     sum_number(7)       =     7  (appel terminal)
-    somme total         = somme du nombre des dizaines + chiffre des unités
 
 Il faut quand même un cas d'arrêt pour ne pas faire de récursion
 inifinie. On remarque rapidement que pour tout nombre positif
@@ -34,13 +33,14 @@ seul chiffre), c'est lui même.
 
 ==
 
-code==
+editor.code==
 int sum_number(int n){
   ...
 }
 ==
 
 solution==
+
 int sum_number(int n){
   if (n<10)
     return n;
@@ -49,6 +49,7 @@ int sum_number(int n){
 ==
 
 codeafter==
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -62,16 +63,16 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-from random import randint
+tests==
 
-tests = [["Basique", "0", ""],
-	 ["Petit", "7", ""],
-         ["PLein", "1234567", ""]]
+[["Basique", "0", ""],
+ ["Petit", "7", ""],
+ ["PLein", "1234567", ""],
+ ["Aléatoire", str(random.randint(1, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(1, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(1, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(1, 2000000000)), ""],
+ ["Aléatoire", str(random.randint(1, 2000000000)), ""]]
 
-for j in range(5):
-    tests.append(["Aléatoire", str(randint(1, 2000000000)), ""])
-
-graderII(tests)
 ==
+
