@@ -2,44 +2,47 @@
 #
 
 author=NB&DR
-
-title= Contient des Voyelles
+title= Repérer les voyelles
 tag=function|string|strchr
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Écrire une fonction *asvoyelle* qui prend une chaine en parametre et qui retourne la première voyelle trouvée dans la chaine.
+Écrire une fonction **as_vowel** qui prend une chaine de caractères en parametre 
+et qui retourne la première voyelle trouvée dans cette chaine. Si la chaîne ne 
+contient pas de voyelle alors votre fonction devra retourner 0.
 
 ==
 
-code==
-const char *voyelle="aeiouy";
+editor.code==
+const char *vowel="aeiouy";
 
-int asvoyelle(...){
+int as_vowel(...){
   ...
 }
 ==
 
 solution==
-#include <string.h>
-const char *voyelle="aeiouy";
 
-int asvoyelle(char *p){
+#include <string.h>
+const char *vowel="aeiouy";
+
+int as_vowel(char *p){
   for(;*p;p++)
-    if (strchr(voyelle,*p)) return *p;
+    if (strchr(vowel,*p)) return *p;
   return 0;
 }
 ==
 
 codeafter==
+
 #include <stdlib.h>
 #include <stdio.h>
 
 
 int main(int argc, char* argv[]){
 
-  int a=asvoyelle(argv[1]);
+  int a=as_vowel(argv[1]);
   if (a)
   printf("la chaine  %s contient la voyelle %c\n",argv[1],a);
   else
@@ -49,20 +52,15 @@ int main(int argc, char* argv[]){
 ==
 
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Basique", "labellevoyelle", ""],
-    ["Y a pas de voyelles", "bcdfghjklmnpqrstvwxz", ""],
-    ["Y a a", "aaaa", ""],
-    ["Y a e", "xxxea", ""],
-    ["Y a i", "xxxiea", ""],
-    ["Y a o", "xxxoo", ""],
-    ["Y a y", "xxxy", ""],
-   ]
-
-
-graderII(tests)
+[["Basique", "labellevoyelle", ""],
+["Y a pas de voyelles", "bcdfghjklmnpqrstvwxz", ""],
+["Y'a un a", "aaaa", ""],
+["Y'a un e", "xxxea", ""],
+["Y'a un i", "xxxiea", ""],
+["Y'a un o", "xxxoo", ""],
+["Y'a un y", "xxxy", ""]]
 ==
+
 
