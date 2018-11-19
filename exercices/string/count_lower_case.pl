@@ -1,16 +1,17 @@
 # Copyright 2017 Nicolas Borie <nicolas.borie@u-pem.fr>
 author=Nicolas Borie
-name=Compter les lettres minuscules
 title=Compter les lettres minuscules
 tag=string
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
+
 Écrire une fonction qui prend en argument une chaîne de caractères C
 en ascii et retourne le nombre de lettre minuscule dans cette chaîne. 
+
 ==
 
-code==
+editor.code==
 int count_lower_case(char* s){
   /* votre code ici... */
 }
@@ -40,23 +41,14 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderII
-import random
+tests==
 
-tests = [["Mot simple", "salut", ""],
-         ["Mot compliqué", "Bonjour12LARTISTE42a", ""],
-         ["Mot vide", "''", ""]]
+[["Mot simple", "salut", ""],
+ ["Mot compliqué", "Bonjour12LARTISTE42a", ""],
+ ["Mot vide", "''", ""],
+ ["Mot aléatoire", "".join([chr(65+random.randint(0,25)+(random.randint(0,1)*(97-65))) for i in range(random.randint(10, 30))]), ""],
+ ["Mot aléatoire", "".join([chr(65+random.randint(0,25)+(random.randint(0,1)*(97-65))) for i in range(random.randint(10, 30))]), ""],
+ ["Mot aléatoire", "".join([chr(65+random.randint(0,25)+(random.randint(0,1)*(97-65))) for i in range(random.randint(10, 30))]), ""]]
 
-for i in range(3):
-    taille = random.randint(10, 30)
-    mot = ""
-    for j in range(taille):
-        if random.randint(0,1) == 0:
-            mot += chr(97+random.randint(0,25))
-        else:
-            mot += chr(65+random.randint(0,25))
-    tests.append(["Aléatoire", mot, ""])
-
-graderII(tests)
 ==
+
