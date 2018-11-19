@@ -6,29 +6,32 @@ author=Dominique & Nicolas
 name=Combien de caractères
 title=Combien de caractères
 tag=string|function|loop|pointer
-template=/template/autograderC
+template=/template/stdsandboxC.pl
 
 text==
 
-Complètez la fonction suivante **count** pour quelle retourne le nombre d'occurence du charactère **c** passé en argument dans la chaîne **s** donnée en argument.
+Complètez la fonction suivante **count** pour quelle retourne le nombre 
+d'occurences du charactère **c** passé en argument dans la chaîne **s** 
+donnée en argument.
 
 
-Vous devez écrire votre fonction sans rien utiliser des bibliothèques standards.
+Vous devez écrire votre fonction sans rien utiliser des 
+bibliothèques standards.
 
-  Rappel : une chaîne de caractères C est tout d'abord un tableau de
+  __Rappel :__ une chaîne de caractères C est tout d'abord un tableau de
   **char**. Une chaîne est donc manipulée par l'adresse de son premier
   élément. Une chaîne de caractères C se termine toujours par le
   caractère **'\0'** qui encode justement la fin de la chaîne. C'est un
   marqueur de fin de tableau car le langage C ne connait pas la longueur
   des tableaux.
 
-taboo:string.h
+taboo: string.h
 ==
 
 taboo=string.h
 
 
-code==
+editor.code==
 int count(char* s, char c){
   /* Votre code ici... */
 }
@@ -58,12 +61,10 @@ int main(int argc, char* argv[]){
 }
 ==
 
-grader==
-from graderC import graderII
+tests==
 
-tests = [["pas d'occurences", "anticonstitutionnellement b", ""], 
-         ["Que la lettre", "ooooooooo o", ""], 
-         ["une occurence", "xxxlhkjhkdqkshdksqjdhlkXqkjhdshlddhqslk X", ""]] 
-
-graderII(tests)
+[["pas d'occurences", "anticonstitutionnellement b", ""], 
+ ["Que la lettre", "ooooooooo o", ""], 
+ ["une occurence", "xxxlhkjhkdqkshdksqjdhlkXqkjhdshlddhqslk X", ""]] 
 ==
+
